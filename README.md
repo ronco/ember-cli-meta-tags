@@ -1,4 +1,4 @@
-# Ember-cli-meta-tags
+# Ember-cli-meta-tags [![Build Status](https://travis-ci.org/ronco/ember-cli-meta-tags.svg?branch=master)](https://travis-ci.org/ronco/ember-cli-meta-tags)
 
 An [Ember CLI](http://www.ember-cli.com/) add-on to easily set `<meta>`
 tags in the document head.
