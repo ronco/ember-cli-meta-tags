@@ -46,8 +46,8 @@ test('has meta for all route-meta routes in hierarchy', function(assert) {
   visit('/resource/sub/deep');
   andThen(function() {
     assert.equal(
-      currentURL(),
-      '/resource/sub/deep'
+      currentPath(),
+      'resource.sub.deep'
     );
     assert.equal(
       find('meta[property="og:name"]', 'head').length,
