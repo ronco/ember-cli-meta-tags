@@ -4,11 +4,13 @@ An [Ember CLI](http://www.ember-cli.com/) add-on to easily set `<meta>`
 tags in the document head.
 
 Many social networks, sharing platforms, and search engines extract
-data from `<meta>` tags within a page's head tag.  With this add-on
+data from `<meta>` tags within a page's head tag.  With this add-on,
 you can have those meta tags populated when entering individual Ember
 routes.  This allows you to keep all logic within your client side
-application and not need a sophisticated web server to populate tags
-correctly.  This add-on is perfect for combining with a prerendering
+application without needing a sophisticated web server to populate tags
+correctly.  
+
+This add-on is perfect for combining with a prerendering
 server side solution such as [prerender.io](http://www.prerender.io)
 or eventually with
 [Ember Fastboot](https://github.com/tildeio/ember-cli-fastboot).
