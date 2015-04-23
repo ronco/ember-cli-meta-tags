@@ -1,9 +1,8 @@
 {
   "name": "ember-cli-meta-tags",
   "version": "0.0.1",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "An Ember CLI add-on to easily set <meta> tags in the document head.",
   "directories": {
-    "doc": "doc",
     "test": "tests"
   },
   "scripts": {
@@ -11,11 +10,14 @@
     "build": "ember build",
     "test": "ember try:testall"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ronco/ember-cli-meta-tags.git"
+  },
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Ron White <ronco@costite.com>",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.2",
