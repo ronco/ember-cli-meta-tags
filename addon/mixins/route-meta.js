@@ -46,6 +46,8 @@ export default Ember.Mixin.create({
     return Ember.run.next(this, function() {
       if (typeof this.meta === 'function') {
         return this.setMeta(this.meta());
+      }else if (typeof this.meta === 'object') {
+        return this.setMeta(this.meta);
       }
     });
   },
