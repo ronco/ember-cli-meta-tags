@@ -8,7 +8,7 @@ data from `<meta>` tags within a page's head tag.  With this add-on,
 you can have those meta tags populated when entering individual Ember
 routes.  This allows you to keep all logic within your client side
 application without needing a sophisticated web server to populate tags
-correctly.  
+correctly.
 
 This add-on is perfect for combining with a prerendering
 server side solution such as [prerender.io](http://www.prerender.io)
@@ -27,10 +27,15 @@ ember install:addon ember-cli-meta-tags
 ### Adding Tags Automatically On Transition
 
 In order to dynamically add meta tags from your routes you will need
-to mixin the `RouteMetaMixin` into your route and implement a `meta`
-method returning the appropriate meta tags.
+to mixin the `RouteMetaMixin` into your route and then provide the
+appropriate meta tag object.
 
-##### Example:
+##### Meta function
+
+You can provide the meta by implementing a `meta` method on the route
+that returns the appropriate meta tags.
+
+###### Example:
 
 ```javascript
 // app/routes/some-page.js
@@ -67,6 +72,31 @@ updated:
 
 These tags will automatically be cleared when transitioning away from
 this route.
+
+##### Meta object
+
+You can also define the tags by providing an object as the value for
+route.meta.  This can either be in-lined in your route definition, or
+set as a property on the route prior to did-transition.
+
+###### Example
+```javascript
+// app/routes/some-page.js
+import Ember from 'ember';
+import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
+
+export default Ember.Route.extend(RouteMetaMixin, {
+  meta: {
+    'property': {
+      'og:name': 'Ice-T',
+      'og:image': 'http://upload.wikimedia.org/wikipedia/en/b/b6/Ice-T-O.G._Original_Gangster_(album_cover_with_matt).jpg'
+    },
+    'name': {
+      'twitter:image': 'http://upload.wikimedia.org/wikipedia/en/b/b6/Ice-T-O.G._Original_Gangster_(album_cover_with_matt).jpg'
+    }
+  }
+});
+```
 
 ### Resetting Tags Outside of Transition
 
