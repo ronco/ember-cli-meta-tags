@@ -42,6 +42,31 @@ test('Sets and clears meta', function(assert) {
   });
 });
 
+test('Sets and clears meta from object property', function(assert) {
+  visit('/route-object-1');
+  andThen(function() {
+    assert.equal(
+      find('meta[property="og:name"]', 'head').length,
+      1
+    );
+    assert.equal(
+      find('meta[property="og:name"]', 'head').first().attr('content'),
+      'Eazy-E'
+    );
+  });
+  visit('/route-object-2');
+  andThen(function() {
+    assert.equal(
+      find('meta[property="og:name"]', 'head').length,
+      1
+    );
+    assert.equal(
+      find('meta[property="og:name"]', 'head').first().attr('content'),
+      'Dre'
+    );
+  });
+});
+
 test('has meta for all route-meta routes in hierarchy', function(assert) {
   visit('/resource/sub/deep');
   andThen(function() {
