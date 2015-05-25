@@ -120,3 +120,21 @@ test('_runSetMeta pulls from function', function(assert) {
   subject._runSetMeta();
   subjectMock.verify();
 });
+
+test('_runSetMeta pulls from object', function(assert) {
+  var RouteMetaObject = Ember.Object.extend(RouteMetaMixin);
+  var subject = RouteMetaObject.create({
+    meta:  {
+      'name': {
+        'twitter:description': 'foo'
+      }
+    }
+  });
+  assert.ok(subject);
+  var subjectMock = sinon.mock(subject);
+  subjectMock.expects('setMeta').once().withArgs(
+    {"name":{"twitter:description":"foo"}}
+  );
+  subject._runSetMeta();
+  subjectMock.verify();
+});
