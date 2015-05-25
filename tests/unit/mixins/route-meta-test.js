@@ -1,4 +1,4 @@
-/* global sinon */
+/*global sinon */
 import Ember from 'ember';
 import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
 
@@ -98,4 +98,43 @@ test('clearMeta removes only relevant meta tags', function(assert) {
   subjectMock.verify();
   assert.equal(fakeHead.html(), '<meta property="og:name" content="Ice-T">');
   assert.equal(subject.get('currentMetaSelectors'), null);
+});
+
+test('_runSetMeta pulls from function', function(assert) {
+  var RouteMetaObject = Ember.Object.extend(RouteMetaMixin);
+  var subject = RouteMetaObject.create({
+    meta: function() {
+      return {
+        'name': {
+          'twitter:description': this.get('data')
+        }
+      };
+    },
+    data: 'foo'
+  });
+  assert.ok(subject);
+  var subjectMock = sinon.mock(subject);
+  subjectMock.expects('setMeta').once().withArgs(
+    {"name":{"twitter:description":"foo"}}
+  );
+  subject._runSetMeta();
+  subjectMock.verify();
+});
+
+test('_runSetMeta pulls from object', function(assert) {
+  var RouteMetaObject = Ember.Object.extend(RouteMetaMixin);
+  var subject = RouteMetaObject.create({
+    meta:  {
+      'name': {
+        'twitter:description': 'foo'
+      }
+    }
+  });
+  assert.ok(subject);
+  var subjectMock = sinon.mock(subject);
+  subjectMock.expects('setMeta').once().withArgs(
+    {"name":{"twitter:description":"foo"}}
+  );
+  subject._runSetMeta();
+  subjectMock.verify();
 });

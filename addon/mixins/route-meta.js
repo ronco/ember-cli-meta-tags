@@ -43,20 +43,18 @@ export default Ember.Mixin.create({
   },
 
   _runSetMeta: function() {
-    return Ember.run.next(this, function() {
-      var meta = this.get('meta');
-      if (typeof meta === 'function') {
-        return this.setMeta(meta());
-      }else if (typeof meta === 'object') {
-        return this.setMeta(meta);
-      }
-    });
+    var meta = this.get('meta');
+    if (typeof meta === 'function') {
+      return this.setMeta(meta.apply(this));
+    }else if (typeof meta === 'object') {
+      return this.setMeta(meta);
+    }
   },
 
   actions: {
     didTransition: function() {
       this._super.apply(this, arguments);
-      this._runSetMeta();
+      Ember.run.next(this, this._runSetMeta);
       return true; // bubble
     },
     willTransition: function(/* transition */) {
@@ -66,7 +64,7 @@ export default Ember.Mixin.create({
     },
     resetMeta: function() {
       this.clearMeta();
-      this._runSetMeta();
+      Ember.run.next(this, this._runSetMeta);
       return false; // don't bubble, handled here
     }
 
