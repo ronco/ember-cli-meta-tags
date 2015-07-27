@@ -21,7 +21,7 @@ or eventually with
 
 In your Ember CLI project directory run:
 ```
-ember install:addon ember-cli-meta-tags
+ember install ember-cli-meta-tags
 ```
 
 ### Adding Tags Automatically On Transition
