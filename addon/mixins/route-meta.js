@@ -8,6 +8,8 @@ import Ember from 'ember';
 //         meta_property_name1: meta_value1
 //         meta_property_name2: meta_value2
 
+const keys = Object.keys || Ember.keys;
+
 export default Ember.Mixin.create({
   setMeta: function(meta) {
     var $head, $metaProto, $newMetaValues, selectors, metaTypes;
@@ -19,9 +21,9 @@ export default Ember.Mixin.create({
     $metaProto = Ember.$('<meta></meta>');
     $newMetaValues = [];
     selectors = [];
-    metaTypes = Ember.keys(meta);
+    metaTypes = keys(meta);
     metaTypes.forEach(function(meta_type) {
-      Ember.keys(meta[meta_type]).map(function(key) {
+      keys(meta[meta_type]).map(function(key) {
         selectors.push('meta[' + meta_type + '="' + key + '"]');
         $newMetaValues.push($metaProto.clone().attr(meta_type, key)
                             .attr('content', meta[meta_type][key]));
