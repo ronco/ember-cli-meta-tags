@@ -1,5 +1,21 @@
 # Change Log
 
+## [v0.1.2](https://github.com/ronco/ember-cli-meta-tags/tree/v0.1.2) (2015-08-16)
+[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v0.1.1...v0.1.2)
+
+**Closed issues:**
+
+- How is this helpful? [\#16](https://github.com/ronco/ember-cli-meta-tags/issues/16)
+- Deprecation warning for installation [\#15](https://github.com/ronco/ember-cli-meta-tags/issues/15)
+- Improve Documentation [\#7](https://github.com/ronco/ember-cli-meta-tags/issues/7)
+
+**Merged pull requests:**
+
+- use Object.keys with fallback to Ember.keys to remove deprecation war… [\#17](https://github.com/ronco/ember-cli-meta-tags/pull/17) ([kturney](https://github.com/kturney))
+- Develop [\#10](https://github.com/ronco/ember-cli-meta-tags/pull/10) ([ronco](https://github.com/ronco))
+- Travis ember-try updates [\#9](https://github.com/ronco/ember-cli-meta-tags/pull/9) ([ronco](https://github.com/ronco))
+- Improved documentation [\#8](https://github.com/ronco/ember-cli-meta-tags/pull/8) ([ronco](https://github.com/ronco))
+
 ## [v0.1.1](https://github.com/ronco/ember-cli-meta-tags/tree/v0.1.1) (2015-05-25)
 [Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v0.1.0...v0.1.1)
 
