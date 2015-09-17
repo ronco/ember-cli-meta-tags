@@ -13,7 +13,7 @@ correctly.
 This add-on is perfect for combining with a prerendering
 server side solution such as [prerender.io](http://www.prerender.io)
 or eventually with
-[Ember Fastboot](https://github.com/tildeio/ember-cli-fastboot).
+[Ember Fastboot](https://github.com/tildeio/ember-cli-fastboot).  (Note not currently compatible with fastboot.  See [#12](https://github.com/ronco/ember-cli-meta-tags/issues/12)).
 
 ## Usage
 
@@ -21,7 +21,7 @@ or eventually with
 
 In your Ember CLI project directory run:
 ```
-ember install:addon ember-cli-meta-tags
+ember install ember-cli-meta-tags
 ```
 
 ### Adding Tags Automatically On Transition
