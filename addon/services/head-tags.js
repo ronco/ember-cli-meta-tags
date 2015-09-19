@@ -9,7 +9,6 @@ const VALID_HEAD_TAGS = Ember.A([
 ]);
 
 export default Ember.Service.extend({
-  headTags: Ember.A([]),
 
   // crawl up the active route stack and collect head tags
   collectHeadTags() {
@@ -19,7 +18,7 @@ export default Ember.Service.extend({
       Ember.merge(tags, this._extractHeadTagsFromRoute(handlerInfo.handler));
     });
     let tagArray = Ember.$.map(tags, function(tag) { return tag; });
-    this.set('headTags', tagArray);
+    this.set('renderer.headTags', Ember.A(tagArray));
   },
 
   _extractHeadTagsFromRoute(route) {
