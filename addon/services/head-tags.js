@@ -28,7 +28,7 @@ export default Ember.Service.extend({
     }
     if (typeof headTags === 'function') {
       headTags = headTags.apply(route);
-    } else if (typeof meta !== 'object') {
+    } else if (typeof headTags !== 'object') {
       // not recognized construct
       return {};
     }

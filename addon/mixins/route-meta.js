@@ -11,6 +11,7 @@ import Ember from 'ember';
 const keys = Object.keys || Ember.keys;
 
 export default Ember.Mixin.create({
+  headTagsService: Ember.inject.service('head-tags'),
 
   // convert legacy meta tags to headTags
   headTags() {
@@ -35,5 +36,12 @@ export default Ember.Mixin.create({
       }));
     }, Ember.A([]));
   },
+
+  actions: {
+    resetMeta() {
+      let service = this.get('headTagsService');
+      Ember.run.next(service, 'collectHeadTags');
+    }
+  }
 
 });
