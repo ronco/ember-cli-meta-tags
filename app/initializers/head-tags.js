@@ -1,6 +1,13 @@
-import instanceInitializer from '../instance-initializers/head-tags';
+import Ember from 'ember';
+import instanceInitializer from 'ember-cli-meta-tags/instance-initializers/head-tags';
 
-export function initialize(registry, application) {
+if (Ember.Application.instanceInitializer) {
+  Ember.Application.instanceInitializer(instanceInitializer);
+}
+
+export function initialize() {
+  const application = arguments[1] || arguments[0];
+  const container = application.__container__;
   application.inject('service:head-tags', 'router', 'router:main');
 
   // Ember >= 1.12
@@ -9,9 +16,7 @@ export function initialize(registry, application) {
   }
 
   // Ember < 1.12
-  instanceInitializer.initialize({
-    container: registry
-  });
+  instanceInitializer.initialize(container);
 }
 
 export default {
