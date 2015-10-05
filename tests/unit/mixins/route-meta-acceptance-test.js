@@ -1,4 +1,3 @@
-/* global sinon */
 import Ember from 'ember';
 import startApp from '../../helpers/start-app';
 import { module, test } from 'qunit';
