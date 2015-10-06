@@ -1,6 +1,8 @@
 import Ember from 'ember';
+import layout from '../templates/components/head-tag';
 
 export default Ember.Component.extend({
+  layout: layout,
 
   _setTagName: Ember.on('init', function() {
     this.set('tagName', this.get('headTag.type'));

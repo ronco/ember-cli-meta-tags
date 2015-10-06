@@ -9,6 +9,7 @@ moduleForComponent('head-tag', 'Integration | Component | head tag', {
 });
 
 test('it render correct tagName', function(assert) {
+  assert.expect(1);
   this.set(
     'headTag',
     {
@@ -19,6 +20,23 @@ test('it render correct tagName', function(assert) {
   this.render(hbs`{{head-tag headTag=headTag}}`);
 
   assert.equal(this.$('>link').length, 1);
+});
+
+test('it can render content', function(assert) {
+  assert.expect(1);
+  this.set(
+    'headTag',
+    {
+      type: 'script',
+      attrs: {
+        type: 'application/ld+json'
+      },
+      content: 'foo-bar'
+    });
+
+  this.render(hbs`{{head-tag headTag=headTag}}`);
+
+  assert.equal(this.$('>script').text().trim(), 'foo-bar');
 });
 
 test('it renders attributes', function(assert) {
