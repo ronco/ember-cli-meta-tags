@@ -5,22 +5,21 @@ moduleForComponent('head-tags', 'Integration | Component | head tags', {
   integration: true
 });
 
-test('it renders', function(assert) {
-  assert.expect(0);
+test('it renders no self tag', function(assert) {
+  assert.expect(3);
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  this.set('headTags', [
+    {
+      type: 'meta'
+    },
+    {
+      type: 'link'
+    }
+  ]);
+  this.render(hbs`{{head-tags headTags=headTags}}`);
 
-  this.render(hbs`{{head-tags}}`);
+  assert.equal(this.$('>*').length, 2);
+  assert.equal(this.$('>meta').length, 1);
+  assert.equal(this.$('>link').length, 1);
 
-  // assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#head-tags}}
-    {{/head-tags}}
-  `);
-
-  //TODO: test here
-  // assert.equal(this.$().text().trim(), '');
 });

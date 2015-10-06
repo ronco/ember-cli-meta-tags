@@ -34,7 +34,7 @@ test('headTags pulls from function', function(assert) {
   );
 });
 
-test('_runSetMeta pulls from object', function(assert) {
+test('headTags pulls from object', function(assert) {
   var RouteMetaObject = Ember.Object.extend(RouteMetaMixin);
   var subject = RouteMetaObject.create({
     meta:  {
