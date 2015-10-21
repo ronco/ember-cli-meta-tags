@@ -10,6 +10,22 @@ import Ember from 'ember';
 
 const keys = Object.keys || Ember.keys;
 
+export function metaToHeadTags(meta) {
+  let metaTypes = keys(meta);
+  return metaTypes.reduce(function(headTags, meta_type) {
+    return headTags.pushObjects(keys(meta[meta_type]).map(function(key) {
+      return {
+        tagId: `${meta_type}:${key}`,
+        type: 'meta',
+        attrs: {
+          [meta_type]: key,
+          content: meta[meta_type][key]
+        }
+      };
+    }));
+  }, Ember.A([]));
+}
+
 export default Ember.Mixin.create({
   headTagsService: Ember.inject.service('head-tags'),
 
@@ -22,19 +38,7 @@ export default Ember.Mixin.create({
       return undefined;
     }
 
-    let metaTypes = keys(meta);
-    return metaTypes.reduce(function(headTags, meta_type) {
-      return headTags.pushObjects(keys(meta[meta_type]).map(function(key) {
-        return {
-          tagId: `${meta_type}:${key}`,
-          type: 'meta',
-          attrs: {
-            [meta_type]: key,
-            content: meta[meta_type][key]
-          }
-        };
-      }));
-    }, Ember.A([]));
+    return metaToHeadTags(meta);
   },
 
   actions: {
