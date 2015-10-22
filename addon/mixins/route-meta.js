@@ -10,73 +10,42 @@ import Ember from 'ember';
 
 const keys = Object.keys || Ember.keys;
 
+export function metaToHeadTags(meta) {
+  let metaTypes = keys(meta);
+  return metaTypes.reduce(function(headTags, meta_type) {
+    return headTags.pushObjects(keys(meta[meta_type]).map(function(key) {
+      return {
+        tagId: `${meta_type}:${key}`,
+        type: 'meta',
+        attrs: {
+          [meta_type]: key,
+          content: meta[meta_type][key]
+        }
+      };
+    }));
+  }, Ember.A([]));
+}
+
 export default Ember.Mixin.create({
-  setMeta: function(meta) {
-    var $head, $metaProto, $newMetaValues, selectors, metaTypes;
-    // don't set meta if route is no longer active
-    if (!this._routeMetaIsActiveRoute()) {
-      return;
-    }
-    $head = this._routeMetaGetHead();
-    $metaProto = Ember.$('<meta></meta>');
-    $newMetaValues = [];
-    selectors = [];
-    metaTypes = keys(meta);
-    metaTypes.forEach(function(meta_type) {
-      keys(meta[meta_type]).map(function(key) {
-        selectors.push('meta[' + meta_type + '="' + key + '"]');
-        $newMetaValues.push($metaProto.clone().attr(meta_type, key)
-                            .attr('content', meta[meta_type][key]));
-      });
-    });
-    $head.append($newMetaValues);
-    this.set('currentMetaSelectors', selectors);
-  },
+  headTagsService: Ember.inject.service('head-tags'),
 
-  clearMeta: function() {
-    var $head, selectors;
-    selectors = this.get('currentMetaSelectors');
-    if (!selectors) {
-      return;
-    }
-    $head = this._routeMetaGetHead();
-    $head.find(selectors.join(',')).remove();
-    return this.set('currentMetaSelectors', null);
-  },
-
-  _runSetMeta: function() {
+  // convert legacy meta tags to headTags
+  headTags() {
     var meta = this.get('meta');
     if (typeof meta === 'function') {
-      return this.setMeta(meta.apply(this));
-    }else if (typeof meta === 'object') {
-      return this.setMeta(meta);
+      meta = meta.apply(this);
+    } else if (typeof meta !== 'object') {
+      return undefined;
     }
+
+    return metaToHeadTags(meta);
   },
 
   actions: {
-    didTransition: function() {
-      this._super.apply(this, arguments);
-      Ember.run.next(this, this._runSetMeta);
-      return true; // bubble
-    },
-    willTransition: function(/* transition */) {
-      this._super.apply(this, arguments);
-      this.clearMeta();
-      return true; // bubble
-    },
-    resetMeta: function() {
-      this.clearMeta();
-      Ember.run.next(this, this._runSetMeta);
-      return false; // don't bubble, handled here
+    resetMeta() {
+      let service = this.get('headTagsService');
+      Ember.run.next(service, 'collectHeadTags');
     }
-
-  },
-
-  _routeMetaGetHead: function() {
-    return Ember.$('head');
-  },
-
-  _routeMetaIsActiveRoute: function() {
-    return this.router.isActive(this.routeName);
   }
+
 });
