@@ -1,36 +1,34 @@
-/* jshint node: true */
-
 module.exports = {
   scenarios: [
     {
-      name: 'our-current',
-      dependencies: {}
+      name: 'default',
+      dependencies: { }
     },
     {
       name: 'ember-release',
       dependencies: {
-        "ember": "ember#release"
+        'ember': 'components/ember#release'
       },
       resolutions: {
-        "ember": "release"
+        'ember': 'release'
       }
     },
     {
       name: 'ember-beta',
       dependencies: {
-        "ember": "ember#beta"
+        'ember': 'components/ember#beta'
       },
       resolutions: {
-        "ember": "beta"
+        'ember': 'beta'
       }
     },
     {
       name: 'ember-canary',
       dependencies: {
-        "ember": "ember#canary"
+        'ember': 'components/ember#canary'
       },
       resolutions: {
-        "ember": "canary"
+        'ember': 'canary'
       }
     }
   ]
