@@ -1,5 +1,24 @@
 # Change Log
 
+## [v1.0.0](https://github.com/ronco/ember-cli-meta-tags/tree/v1.0.0) (2015-10-23)
+[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v0.1.2...v1.0.0)
+
+**Implemented enhancements:**
+
+- Remove direct DOM manipulation [\#13](https://github.com/ronco/ember-cli-meta-tags/issues/13)
+- Support tags other than meta [\#11](https://github.com/ronco/ember-cli-meta-tags/issues/11)
+
+**Closed issues:**
+
+- issue with facebook [\#22](https://github.com/ronco/ember-cli-meta-tags/issues/22)
+- Duplicate meta tags [\#21](https://github.com/ronco/ember-cli-meta-tags/issues/21)
+- Multiple tags produced on nested routes. [\#19](https://github.com/ronco/ember-cli-meta-tags/issues/19)
+
+**Merged pull requests:**
+
+- Arbitrary Head Tags + Proper Nested Route Support [\#23](https://github.com/ronco/ember-cli-meta-tags/pull/23) ([ronco](https://github.com/ronco))
+- Feature/service implementation [\#20](https://github.com/ronco/ember-cli-meta-tags/pull/20) ([ronco](https://github.com/ronco))
+
 ## [v0.1.2](https://github.com/ronco/ember-cli-meta-tags/tree/v0.1.2) (2015-08-16)
 [Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v0.1.1...v0.1.2)
 
