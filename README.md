@@ -42,7 +42,7 @@ To define a head tag you will use the following structure:
     // html element type (meta, link, etc.)
     type: 'meta',
     // unique id for nesting (see below)
-    tagId: 'meta-description-tag'
+    tagId: 'meta-description-tag',
     // key value attributes for the element
     attrs: {
       name: 'description',
@@ -104,7 +104,7 @@ export default Ember.Route.extend({
  setHeadTags: function (model) {
    var headTags = [{
      type: 'meta',
-     tagId: 'meta-description-tag'
+     tagId: 'meta-description-tag',
      attrs: {
        name: 'description',
        content: model.get('description')
@@ -134,7 +134,7 @@ export default Ember.Route.extend({
     let model = this.modelFor(this.routeName);
     return [{
       type: 'meta',
-      tagId: 'meta-description-tag'
+      tagId: 'meta-description-tag',
       attrs: {
         name: 'description',
         content: model.get('description')
@@ -178,7 +178,7 @@ export default Ember.Route.extend(RouteMetaMixin, {
     // route's controller
     return [{
       type: 'meta',
-      tagId: 'meta-title'
+      tagId: 'meta-title',
       attrs: {
         property: 'title',
         content: controller.get('era')
