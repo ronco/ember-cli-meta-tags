@@ -27,7 +27,8 @@ export default Ember.Component.extend({
     'async',
     'defer',
     'src',
-    'property'
+    'property',
+    'itemprop'
   ],
   href:         Ember.computed.reads('headTag.attrs.href'),
   target:       Ember.computed.reads('headTag.attrs.target'),
@@ -46,6 +47,7 @@ export default Ember.Component.extend({
   async:        Ember.computed.reads('headTag.attrs.async'),
   defer:        Ember.computed.reads('headTag.attrs.defer'),
   src:          Ember.computed.reads('headTag.attrs.src'),
-  property:     Ember.computed.reads('headTag.attrs.property')
+  property:     Ember.computed.reads('headTag.attrs.property'),
+  itemprop:     Ember.computed.reads('headTag.attrs.itemprop')
 
 });
