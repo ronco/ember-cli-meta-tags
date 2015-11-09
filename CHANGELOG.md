@@ -1,5 +1,17 @@
 # Change Log
 
+## [1.0.1](https://github.com/ronco/ember-cli-meta-tags/tree/1.0.1) (2015-11-09)
+[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v1.0.0...1.0.1)
+
+**Closed issues:**
+
+- Support for itemprop  [\#26](https://github.com/ronco/ember-cli-meta-tags/issues/26)
+
+**Merged pull requests:**
+
+- 'itemprop' attribute added to meta tag. [\#27](https://github.com/ronco/ember-cli-meta-tags/pull/27) ([graham73may](https://github.com/graham73may))
+- Fixed example in README.md [\#25](https://github.com/ronco/ember-cli-meta-tags/pull/25) ([seven7seven](https://github.com/seven7seven))
+
 ## [v1.0.0](https://github.com/ronco/ember-cli-meta-tags/tree/v1.0.0) (2015-10-23)
 [Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v0.1.2...v1.0.0)
 
