@@ -57,7 +57,8 @@ test('it renders attributes', function(assert) {
     'name',
     'scheme',
     'src',
-    'property'
+    'property',
+    'itemprop'
   ]).forEach(function(attr) {
     attrs[attr] = `the-${attr}`;
   });
