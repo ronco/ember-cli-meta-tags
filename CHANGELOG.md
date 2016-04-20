@@ -1,5 +1,18 @@
 # Change Log
 
+## [1.0.2](https://github.com/ronco/ember-cli-meta-tags/tree/1.0.2) (2016-04-20)
+[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/1.0.1...1.0.2)
+
+**Closed issues:**
+
+- facebook crawler not reading meta tags [\#30](https://github.com/ronco/ember-cli-meta-tags/issues/30)
+- OG & Twitter not reading our meta tags [\#24](https://github.com/ronco/ember-cli-meta-tags/issues/24)
+
+**Merged pull requests:**
+
+- 2.5 Merge deprecation fix [\#32](https://github.com/ronco/ember-cli-meta-tags/pull/32) ([ronco](https://github.com/ronco))
+- Update head-tags.js [\#31](https://github.com/ronco/ember-cli-meta-tags/pull/31) ([charlatan154](https://github.com/charlatan154))
+
 ## [1.0.1](https://github.com/ronco/ember-cli-meta-tags/tree/1.0.1) (2015-11-09)
 [Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v1.0.0...1.0.1)
 
