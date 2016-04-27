@@ -10,6 +10,8 @@ const VALID_HEAD_TAGS = Ember.A([
 
 const assign = Ember.assign ? Ember.assign : Ember.merge;
 
+const keys = Object.keys || Ember.keys;
+
 export default Ember.Service.extend({
   headData: Ember.inject.service(),
 
@@ -20,7 +22,7 @@ export default Ember.Service.extend({
     handlerInfos.forEach((handlerInfo) => {
       assign(tags, this._extractHeadTagsFromRoute(handlerInfo.handler));
     });
-    let tagArray = Ember.$.map(tags, function(tag) { return tag; });
+    let tagArray = Ember.A(keys(tags)).map((id) => tags[id]);
     this.set('headData.headTags', Ember.A(tagArray));
   },
 
