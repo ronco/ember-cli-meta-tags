@@ -1,7 +1,11 @@
 # Change Log
 
-## [1.0.2](https://github.com/ronco/ember-cli-meta-tags/tree/1.0.2) (2016-04-20)
-[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/1.0.1...1.0.2)
+## [2.0.0](https://github.com/ronco/ember-cli-meta-tags/tree/2.0.0) (2016-05-17)
+[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/1.0.1...2.0.0)
+
+**Implemented enhancements:**
+
+- Fastboot Support [\#12](https://github.com/ronco/ember-cli-meta-tags/issues/12)
 
 **Closed issues:**
 
@@ -12,6 +16,7 @@
 
 - 2.5 Merge deprecation fix [\#32](https://github.com/ronco/ember-cli-meta-tags/pull/32) ([ronco](https://github.com/ronco))
 - Update head-tags.js [\#31](https://github.com/ronco/ember-cli-meta-tags/pull/31) ([charlatan154](https://github.com/charlatan154))
+- Use ember-cli-head to render [\#29](https://github.com/ronco/ember-cli-meta-tags/pull/29) ([ronco](https://github.com/ronco))
 
 ## [1.0.1](https://github.com/ronco/ember-cli-meta-tags/tree/1.0.1) (2015-11-09)
 [Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v1.0.0...1.0.1)
