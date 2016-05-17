@@ -2,7 +2,7 @@ import { moduleFor, test } from 'ember-qunit';
 
 moduleFor('service:head-tags', 'Unit | Service | head tags', {
   // Specify the other units that are required for this test.
-  // needs: ['service:foo']
+  needs: ['service:head-data']
 });
 
 // Replace this with your real tests.
@@ -19,7 +19,6 @@ test('it collects head tags from function', function(assert) {
     }
   };
   var service = this.subject({
-    renderer: {},
     router: {
       router: {
         currentHandlerInfos: [{ handler }]
@@ -29,7 +28,7 @@ test('it collects head tags from function', function(assert) {
 
   service.collectHeadTags();
   assert.deepEqual(
-    service.get('renderer.headTags'),
+    service.get('headData.headTags'),
     [{
       type: 'link',
       attrs: {
@@ -50,7 +49,6 @@ test('it collects head tags from property array', function(assert) {
     }]
   };
   var service = this.subject({
-    renderer: {},
     router: {
       router: {
         currentHandlerInfos: [{ handler }]
@@ -60,7 +58,7 @@ test('it collects head tags from property array', function(assert) {
 
   service.collectHeadTags();
   assert.deepEqual(
-    service.get('renderer.headTags'),
+    service.get('headData.headTags'),
     [{
       type: 'link',
       attrs: {
@@ -120,7 +118,6 @@ test('it collects nested tags', function(assert) {
     }
   ];
   var service = this.subject({
-    renderer: {},
     router: {
       router: {
         currentHandlerInfos: handlers
@@ -130,7 +127,7 @@ test('it collects nested tags', function(assert) {
 
   service.collectHeadTags();
   assert.deepEqual(
-    service.get('renderer.headTags'),
+    service.get('headData.headTags'),
     [
       {
         type: 'link',
