@@ -5,7 +5,8 @@ const VALID_HEAD_TAGS = Ember.A([
   'base',
   'link',
   'meta',
-  'script'
+  'script',
+  'noscript'
 ]);
 
 const assign = Ember.assign ? Ember.assign : Ember.merge;
