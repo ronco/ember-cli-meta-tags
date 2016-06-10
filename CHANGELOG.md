@@ -1,5 +1,12 @@
 # Change Log
 
+## [2.0.1](https://github.com/ronco/ember-cli-meta-tags/tree/2.0.1) (2016-06-10)
+[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/2.0.0...2.0.1)
+
+**Merged pull requests:**
+
+- Support the `noscript` tag. [\#34](https://github.com/ronco/ember-cli-meta-tags/pull/34) ([vsymguysung](https://github.com/vsymguysung))
+
 ## [2.0.0](https://github.com/ronco/ember-cli-meta-tags/tree/2.0.0) (2016-05-17)
 [Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/1.0.1...2.0.0)
 
