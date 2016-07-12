@@ -24,6 +24,26 @@ In your Ember CLI project directory run:
 ember install ember-cli-meta-tags
 ```
 
+### Using with Ember Fastboot
+
+Version 2.0+ of this addon is built upon
+[ember-cli-head](https://github.com/ronco/ember-cli-head) and as a
+result is will work automatically out of the box with Ember Fastboot
+if you are running a version of ember >= 2.7.
+
+#### Using with other ember-cli-head addons
+
+If you are using another addon that makes use of `ember-cli-head`
+(such as
+[ember-page-title](https://github.com/tim-evans/ember-page-title)), or
+are directly using `ember-cli-head` in your app you will need to
+create a custom `app/templates/head.hbs` file and include
+`ember-cli-meta-tag`'s component:
+
+```hbs
+{{head-tags headTags=model.headTags}}
+```
+
 ### Adding Tags Automatically On Transition
 
 In order to dynamically add head tags from your routes all you need to
