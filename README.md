@@ -13,7 +13,7 @@ correctly.
 This add-on is perfect for combining with a prerendering
 server side solution such as [prerender.io](http://www.prerender.io)
 or with
-[Ember Fastboot](https://github.com/tildeio/ember-cli-fastboot) (Fastboot compatibility requires ember-cli-meta-tags v2+ and Ember Canary).
+[Ember Fastboot](https://github.com/tildeio/ember-cli-fastboot) (Fastboot compatibility requires ember-cli-meta-tags v2+ and Ember 2.7+ (currently beta)).
 
 ## Usage
 
