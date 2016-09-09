@@ -116,25 +116,23 @@ export default Ember.Route.extend({
 ###### Example: Setting the headTags property in afterModel
 ```javascript
 export default Ember.Route.extend({
+  afterModel: function(model) {
+    this.setHeadTags(model);
+  },
 
- afterModel: function(model) {
-   this.setHeadTags(model);
- },
+  setHeadTags: function(model) {
+    var headTags = [{
+      type: 'meta',
+      tagId: 'meta-description-tag',
+      attrs: {
+        name: 'description',
+        content: model.get('description')
+      }
+    }];
 
- setHeadTags: function (model) {
-   var headTags = [{
-     type: 'meta',
-     tagId: 'meta-description-tag',
-     attrs: {
-       name: 'description',
-       content: model.get('description')
-     }
-   }];
-
-   this.set('headTags', headTags);
- }
-
-}
+    this.set('headTags', headTags);
+  }
+});
 ```
 
 ##### headTags function
@@ -205,7 +203,7 @@ export default Ember.Route.extend(RouteMetaMixin, {
       }
     }]
   }
-}
+});
 
 
 // app/controller/some-page.js
