@@ -1,7 +1,18 @@
 # Change Log
 
-## [2.0.1](https://github.com/ronco/ember-cli-meta-tags/tree/2.0.1) (2016-06-10)
-[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/2.0.0...2.0.1)
+## [v2.0.2](https://github.com/ronco/ember-cli-meta-tags/tree/v2.0.2) (2016-07-13)
+[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v2.0.1...v2.0.2)
+
+**Closed issues:**
+
+- Recommended way of adding valid tags [\#33](https://github.com/ronco/ember-cli-meta-tags/issues/33)
+
+**Merged pull requests:**
+
+- Adds support for \<title\> [\#36](https://github.com/ronco/ember-cli-meta-tags/pull/36) ([locks](https://github.com/locks))
+
+## [v2.0.1](https://github.com/ronco/ember-cli-meta-tags/tree/v2.0.1) (2016-06-10)
+[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/2.0.0...v2.0.1)
 
 **Merged pull requests:**
 
