@@ -1,5 +1,21 @@
 # Change Log
 
+## [3.0.0](https://github.com/ronco/ember-cli-meta-tags/tree/3.0.0) (2016-09-21)
+[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v2.0.2...3.0.0)
+
+**Closed issues:**
+
+- Doesn't work on ember-cli 2.8.0? [\#41](https://github.com/ronco/ember-cli-meta-tags/issues/41)
+- Error in Ember 2.8: Component error can't use 'attributeBindings' on a tag-less component [\#40](https://github.com/ronco/ember-cli-meta-tags/issues/40)
+- Create 2.0.2 release in GH Releases [\#39](https://github.com/ronco/ember-cli-meta-tags/issues/39)
+- Unable to create link tags with Fastboot [\#37](https://github.com/ronco/ember-cli-meta-tags/issues/37)
+- Support title tag [\#35](https://github.com/ronco/ember-cli-meta-tags/issues/35)
+
+**Merged pull requests:**
+
+- Ember 2.8+ Support [\#42](https://github.com/ronco/ember-cli-meta-tags/pull/42) ([ronco](https://github.com/ronco))
+- Fix example code in README.md [\#38](https://github.com/ronco/ember-cli-meta-tags/pull/38) ([tricknotes](https://github.com/tricknotes))
+
 ## [v2.0.2](https://github.com/ronco/ember-cli-meta-tags/tree/v2.0.2) (2016-07-13)
 [Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v2.0.1...v2.0.2)
 
