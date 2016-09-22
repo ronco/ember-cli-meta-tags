@@ -47,7 +47,7 @@ export default Ember.Service.extend({
   _buildTags(headTagsArray) {
     let tagMap = {};
     Ember.A(headTagsArray).forEach(function(tagDefinition) {
-      if(!VALID_HEAD_TAGS.contains(tagDefinition.type)) {
+      if(!VALID_HEAD_TAGS.includes(tagDefinition.type)) {
         return;
       }
       let tagId = tagDefinition.tagId;
