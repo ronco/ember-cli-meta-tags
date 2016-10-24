@@ -9,6 +9,7 @@
 /bower_components
 
 # misc
+.dir-locals.el
 /.sass-cache
 /connect.lock
 /coverage/*
