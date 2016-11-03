@@ -1,7 +1,15 @@
 # Change Log
 
-## [3.0.1](https://github.com/ronco/ember-cli-meta-tags/tree/3.0.1) (2016-09-22)
-[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v3.0.0...3.0.1)
+## [3.0.2](https://github.com/ronco/ember-cli-meta-tags/tree/3.0.2) (2016-11-03)
+[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v3.0.1...3.0.2)
+
+**Merged pull requests:**
+
+- Update ember-cli-head dep [\#46](https://github.com/ronco/ember-cli-meta-tags/pull/46) ([bcardarella](https://github.com/bcardarella))
+- Delete .dir-locals.el [\#45](https://github.com/ronco/ember-cli-meta-tags/pull/45) ([simenheg](https://github.com/simenheg))
+
+## [v3.0.1](https://github.com/ronco/ember-cli-meta-tags/tree/v3.0.1) (2016-09-23)
+[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v3.0.0...v3.0.1)
 
 **Merged pull requests:**
 
