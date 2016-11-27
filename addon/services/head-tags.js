@@ -1,5 +1,9 @@
 import Ember from 'ember';
 
+const {
+  get
+} = Ember;
+
 //TODO: consider polyfilled Set
 const VALID_HEAD_TAGS = Ember.A([
   'base',
@@ -29,7 +33,7 @@ export default Ember.Service.extend({
   },
 
   _extractHeadTagsFromRoute(route) {
-    let headTags = route.headTags;
+    let headTags = get(route, 'headTags');
     if (!headTags) {
       return {};
     }
