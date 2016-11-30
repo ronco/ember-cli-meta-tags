@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-meta-tags",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "An Ember CLI add-on to easily set <meta> tags in the document head.",
   "directories": {
     "doc": "doc",
