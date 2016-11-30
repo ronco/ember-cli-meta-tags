@@ -1,4 +1,9 @@
+import Ember from 'ember';
 import { moduleFor, test } from 'ember-qunit';
+
+const {
+  computed
+} = Ember;
 
 moduleFor('service:head-tags', 'Unit | Service | head tags', {
   // Specify the other units that are required for this test.
@@ -17,6 +22,38 @@ test('it collects head tags from function', function(assert) {
         }
       }];
     }
+  };
+  var service = this.subject({
+    router: {
+      router: {
+        currentHandlerInfos: [{ handler }]
+      }
+    }
+  });
+
+  service.collectHeadTags();
+  assert.deepEqual(
+    service.get('headData.headTags'),
+    [{
+      type: 'link',
+      attrs: {
+        rel: 'canonical'
+      }
+    }]
+  );
+});
+
+test('it collects head tags from CP', function(assert) {
+  assert.expect(1);
+  let handler = {
+    headTags: computed(function() {
+      return [{
+        type: 'link',
+        attrs: {
+          rel: 'canonical'
+        }
+      }];
+    })
   };
   var service = this.subject({
     router: {
