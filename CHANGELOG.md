@@ -1,7 +1,32 @@
 # Change Log
 
+## [3.0.4](https://github.com/ronco/ember-cli-meta-tags/tree/3.0.4) (2016-11-30)
+[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v3.0.3...3.0.4)
+
+**Merged pull requests:**
+
+- Allow `headTags` to be a CP [\#49](https://github.com/ronco/ember-cli-meta-tags/pull/49) ([bcardarella](https://github.com/bcardarella))
+
+## [v3.0.3](https://github.com/ronco/ember-cli-meta-tags/tree/v3.0.3) (2016-11-14)
+[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/3.0.3...v3.0.3)
+
+## [3.0.3](https://github.com/ronco/ember-cli-meta-tags/tree/3.0.3) (2016-11-14)
+[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/3.0.2...3.0.3)
+
+**Closed issues:**
+
+- Restore support for Ember versions \< 2.8 [\#47](https://github.com/ronco/ember-cli-meta-tags/issues/47)
+- Adding Apple Smart App banner not showing up in iPhone [\#18](https://github.com/ronco/ember-cli-meta-tags/issues/18)
+
+**Merged pull requests:**
+
+- Restore pre-2.8 support. [\#48](https://github.com/ronco/ember-cli-meta-tags/pull/48) ([blimmer](https://github.com/blimmer))
+
 ## [3.0.2](https://github.com/ronco/ember-cli-meta-tags/tree/3.0.2) (2016-11-03)
-[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v3.0.1...3.0.2)
+[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v3.0.2...3.0.2)
+
+## [v3.0.2](https://github.com/ronco/ember-cli-meta-tags/tree/v3.0.2) (2016-11-03)
+[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v3.0.1...v3.0.2)
 
 **Merged pull requests:**
 
