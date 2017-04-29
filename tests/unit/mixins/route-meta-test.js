@@ -1,5 +1,5 @@
-/*global sinon */
 import Ember from 'ember';
+import sinon from 'sinon';
 import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
 
 import { module, test } from 'qunit';
