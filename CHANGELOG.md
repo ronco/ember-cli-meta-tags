@@ -1,5 +1,19 @@
 # Change Log
 
+## [3.1.0](https://github.com/ronco/ember-cli-meta-tags/tree/3.1.0) (2017-04-29)
+[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v3.0.4...3.1.0)
+
+**Closed issues:**
+
+- EventDispatcher should never be instantiated in fastboot mode. [\#51](https://github.com/ronco/ember-cli-meta-tags/issues/51)
+
+**Merged pull requests:**
+
+- Update ember-cli and resolve 2.13 dep warning [\#54](https://github.com/ronco/ember-cli-meta-tags/pull/54) ([bcardarella](https://github.com/bcardarella))
+
+## [v3.0.4](https://github.com/ronco/ember-cli-meta-tags/tree/v3.0.4) (2016-11-30)
+[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/3.0.4...v3.0.4)
+
 ## [3.0.4](https://github.com/ronco/ember-cli-meta-tags/tree/3.0.4) (2016-11-30)
 [Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v3.0.3...3.0.4)
 
@@ -11,7 +25,7 @@
 [Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/3.0.3...v3.0.3)
 
 ## [3.0.3](https://github.com/ronco/ember-cli-meta-tags/tree/3.0.3) (2016-11-14)
-[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/3.0.2...3.0.3)
+[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v3.0.2...3.0.3)
 
 **Closed issues:**
 
@@ -22,11 +36,11 @@
 
 - Restore pre-2.8 support. [\#48](https://github.com/ronco/ember-cli-meta-tags/pull/48) ([blimmer](https://github.com/blimmer))
 
-## [3.0.2](https://github.com/ronco/ember-cli-meta-tags/tree/3.0.2) (2016-11-03)
-[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v3.0.2...3.0.2)
-
 ## [v3.0.2](https://github.com/ronco/ember-cli-meta-tags/tree/v3.0.2) (2016-11-03)
-[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v3.0.1...v3.0.2)
+[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/3.0.2...v3.0.2)
+
+## [3.0.2](https://github.com/ronco/ember-cli-meta-tags/tree/3.0.2) (2016-11-03)
+[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v3.0.1...3.0.2)
 
 **Merged pull requests:**
 
