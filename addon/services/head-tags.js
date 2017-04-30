@@ -24,7 +24,11 @@ export default Ember.Service.extend({
   // crawl up the active route stack and collect head tags
   collectHeadTags() {
     let tags = {};
-    let handlerInfos = Ember.A(this.get('router.router.currentHandlerInfos'));
+    let currentHandlerInfos = this.get('router._routerMicrolib.currentHandlerInfos');
+    if (!currentHandlerInfos) {
+      currentHandlerInfos = this.get('router.router.currentHandlerInfos');
+    }
+    let handlerInfos = Ember.A(currentHandlerInfos);
     handlerInfos.forEach((handlerInfo) => {
       assign(tags, this._extractHeadTagsFromRoute(handlerInfo.handler));
     });

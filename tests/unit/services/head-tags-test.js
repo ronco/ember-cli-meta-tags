@@ -25,6 +25,38 @@ test('it collects head tags from function', function(assert) {
   };
   var service = this.subject({
     router: {
+      _routerMicrolib: {
+        currentHandlerInfos: [{ handler }]
+      }
+    }
+  });
+
+  service.collectHeadTags();
+  assert.deepEqual(
+    service.get('headData.headTags'),
+    [{
+      type: 'link',
+      attrs: {
+        rel: 'canonical'
+      }
+    }]
+  );
+});
+
+test('it has fallback for pre-deprecated `router.router`', function(assert) {
+  assert.expect(1);
+  let handler = {
+    headTags() {
+      return [{
+        type: 'link',
+        attrs: {
+          rel: 'canonical'
+        }
+      }];
+    }
+  };
+  var service = this.subject({
+    router: {
       router: {
         currentHandlerInfos: [{ handler }]
       }
@@ -57,7 +89,7 @@ test('it collects head tags from CP', function(assert) {
   };
   var service = this.subject({
     router: {
-      router: {
+      _routerMicrolib: {
         currentHandlerInfos: [{ handler }]
       }
     }
@@ -87,7 +119,7 @@ test('it collects head tags from property array', function(assert) {
   };
   var service = this.subject({
     router: {
-      router: {
+      _routerMicrolib: {
         currentHandlerInfos: [{ handler }]
       }
     }
@@ -156,7 +188,7 @@ test('it collects nested tags', function(assert) {
   ];
   var service = this.subject({
     router: {
-      router: {
+      _routerMicrolib: {
         currentHandlerInfos: handlers
       }
     }
