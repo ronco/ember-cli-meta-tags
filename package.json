@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-meta-tags",
-  "version": "3.0.4",
+  "version": "3.1.0",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
     "ember-addon"
