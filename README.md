@@ -13,7 +13,7 @@ correctly.
 This add-on is perfect for combining with a prerendering
 server side solution such as [prerender.io](http://www.prerender.io)
 or with
-[Ember Fastboot](https://github.com/tildeio/ember-cli-fastboot) (Fastboot compatibility requires ember-cli-meta-tags v2+ and Ember 2.7+ (currently beta)).
+[Ember FastBoot](https://github.com/tildeio/ember-cli-fastboot) (FastBoot compatibility requires ember-cli-meta-tags v2+ and Ember 2.7+).
 
 ## Usage
 
@@ -24,15 +24,15 @@ In your Ember CLI project directory run:
 ember install ember-cli-meta-tags
 ```
 
-### Using with Ember Fastboot
+### Using with Ember FastBoot
 
-Version 4.0+ of this addon is designed to work with Fastboot >= 1.0.0-rc1. If you use
-an order version of fastboot stick with 3.X.
+Version 4.0+ of this addon is designed to work with FastBoot >= 1.0.0-rc1. If you use
+an older version of FastBoot stick with 3.X.
 
 Version 2.0+ of this addon is built upon
 [ember-cli-head](https://github.com/ronco/ember-cli-head) and as a
-result is will work automatically out of the box with Ember Fastboot
-if you are running a version of ember >= 2.7.
+result it will work automatically out of the box with Ember FastBoot
+if you are running a version of Ember >= 2.7.
 
 #### Using with other ember-cli-head addons
 
