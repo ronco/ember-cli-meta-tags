@@ -24,6 +24,10 @@ In your Ember CLI project directory run:
 ember install ember-cli-meta-tags
 ```
 
+### Upgrading to 5.x
+
+Version 5.0 of this addon depends on [ember-cli-head](https://github.com/ronco/ember-cli-head) 0.4.0, which adds the requirement that the `{{head-layout}}` is added once in an application-wide template (usually `app/templates/application.hbs`). For more info, see the [ember-cli-head 0.4 upgrade note](https://github.com/ronco/ember-cli-head#upgrade-to-04x).
+
 ### Using with Ember Fastboot
 
 Version 4.0+ of this addon is designed to work with Fastboot >= 1.0.0-rc1. If you use
