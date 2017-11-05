@@ -51,6 +51,9 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "after": "ember-cli-head"
+    "after": "ember-cli-head",
+    "versionCompatibility": {
+       "ember": ">2.10.0"
+    }
   }
 }
