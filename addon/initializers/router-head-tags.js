@@ -7,8 +7,8 @@ export function initialize() {
     headTags: service(),
 
     didTransition() {
-      this._super(...arguments);
       get(this, 'headTags').collectHeadTags();
+      this._super(...arguments);
     }
   });
 }
