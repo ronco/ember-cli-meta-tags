@@ -124,7 +124,7 @@ export default Ember.Route.extend({
   },
 
   setHeadTags: function(model) {
-    var headTags = [{
+    let headTags = [{
       type: 'meta',
       tagId: 'meta-description-tag',
       attrs: {
