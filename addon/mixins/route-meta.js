@@ -1,4 +1,7 @@
-import Ember from 'ember';
+import { next } from '@ember/runloop';
+import { inject as service } from '@ember/service';
+import Mixin from '@ember/object/mixin';
+import { A } from '@ember/array';
 // Route mixin for setting head meta tags on transition into/out of route
 
 // @example How to set meta tags on a route
@@ -8,12 +11,10 @@ import Ember from 'ember';
 //         meta_property_name1: meta_value1
 //         meta_property_name2: meta_value2
 
-const keys = Object.keys || Ember.keys;
-
 export function metaToHeadTags(meta) {
-  let metaTypes = keys(meta);
+  let metaTypes = Object.keys(meta);
   return metaTypes.reduce(function(headTags, meta_type) {
-    return headTags.pushObjects(keys(meta[meta_type]).map(function(key) {
+    return headTags.pushObjects(Object.keys(meta[meta_type]).map(function(key) {
       return {
         tagId: `${meta_type}:${key}`,
         type: 'meta',
@@ -23,11 +24,11 @@ export function metaToHeadTags(meta) {
         }
       };
     }));
-  }, Ember.A([]));
+  }, A([]));
 }
 
-export default Ember.Mixin.create({
-  headTagsService: Ember.inject.service('head-tags'),
+export default Mixin.create({
+  headTagsService: service('head-tags'),
 
   // convert legacy meta tags to headTags
   headTags() {
@@ -44,7 +45,7 @@ export default Ember.Mixin.create({
   actions: {
     resetMeta() {
       let service = this.get('headTagsService');
-      Ember.run.next(service, 'collectHeadTags');
+      next(service, 'collectHeadTags');
     }
   }
 

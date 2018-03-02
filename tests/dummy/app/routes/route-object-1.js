@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
 
-export default Ember.Route.extend(RouteMetaMixin, {
+export default Route.extend(RouteMetaMixin, {
   meta: {
     'property': {
       'og:name': 'Eazy-E'
