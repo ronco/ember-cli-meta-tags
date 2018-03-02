@@ -32,7 +32,7 @@ export default Mixin.create({
 
   // convert legacy meta tags to headTags
   headTags() {
-    var meta = this.get('meta');
+    let meta = this.get('meta');
     if (typeof meta === 'function') {
       meta = meta.apply(this);
     } else if (typeof meta !== 'object') {

@@ -8,8 +8,8 @@ import { module, test } from 'qunit';
 
 module('RouteMetaMixin', function() {
   test('headTags pulls from function', function(assert) {
-    var RouteMetaObject = EmberObject.extend(RouteMetaMixin);
-    var subject = RouteMetaObject.create({
+    let RouteMetaObject = EmberObject.extend(RouteMetaMixin);
+    let subject = RouteMetaObject.create({
       meta: function() {
         return {
           'name': {
@@ -36,8 +36,8 @@ module('RouteMetaMixin', function() {
   });
 
   test('headTags pulls from object', function(assert) {
-    var RouteMetaObject = EmberObject.extend(RouteMetaMixin);
-    var subject = RouteMetaObject.create({
+    let RouteMetaObject = EmberObject.extend(RouteMetaMixin);
+    let subject = RouteMetaObject.create({
       meta:  {
         'name': {
           'twitter:description': 'foo'
@@ -61,8 +61,8 @@ module('RouteMetaMixin', function() {
   });
 
   test('resetMeta schedules collectHeadTags', function(assert) {
-    var RouteMetaObject = Route.extend(RouteMetaMixin);
-    var subject = RouteMetaObject.create({
+    let RouteMetaObject = Route.extend(RouteMetaMixin);
+    let subject = RouteMetaObject.create({
       headTagsService: 'service'
     });
     let nextStub = sinon.stub(run, 'next');

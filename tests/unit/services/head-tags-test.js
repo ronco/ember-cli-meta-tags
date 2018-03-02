@@ -18,7 +18,7 @@ module('Unit | Service | head tags', function(hooks) {
         }];
       }
     };
-    var service = this.owner.factoryFor('service:head-tags').create({
+    let service = this.owner.factoryFor('service:head-tags').create({
       router: {
         _routerMicrolib: {
           currentHandlerInfos: [{ handler }]
@@ -50,7 +50,7 @@ module('Unit | Service | head tags', function(hooks) {
         }];
       }
     };
-    var service = this.owner.factoryFor('service:head-tags').create({
+    let service = this.owner.factoryFor('service:head-tags').create({
       router: {
         router: {
           currentHandlerInfos: [{ handler }]
@@ -82,7 +82,7 @@ module('Unit | Service | head tags', function(hooks) {
         }];
       })
     };
-    var service = this.owner.factoryFor('service:head-tags').create({
+    let service = this.owner.factoryFor('service:head-tags').create({
       router: {
         _routerMicrolib: {
           currentHandlerInfos: [{ handler }]
@@ -112,7 +112,7 @@ module('Unit | Service | head tags', function(hooks) {
         }
       }]
     };
-    var service = this.owner.factoryFor('service:head-tags').create({
+    let service = this.owner.factoryFor('service:head-tags').create({
       router: {
         _routerMicrolib: {
           currentHandlerInfos: [{ handler }]
@@ -181,7 +181,7 @@ module('Unit | Service | head tags', function(hooks) {
         }
       }
     ];
-    var service = this.owner.factoryFor('service:head-tags').create({
+    let service = this.owner.factoryFor('service:head-tags').create({
       router: {
         _routerMicrolib: {
           currentHandlerInfos: handlers
