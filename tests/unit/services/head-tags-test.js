@@ -1,4 +1,5 @@
 import { computed } from '@ember/object';
+import { run } from '@ember/runloop';
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
@@ -26,7 +27,9 @@ module('Unit | Service | head tags', function(hooks) {
       }
     });
 
-    service.collectHeadTags();
+    run(() => {
+      service.collectHeadTags();
+    });
     assert.deepEqual(
       service.get('headData.headTags'),
       [{
@@ -58,7 +61,9 @@ module('Unit | Service | head tags', function(hooks) {
       }
     });
 
-    service.collectHeadTags();
+    run(() => {
+      service.collectHeadTags();
+    });
     assert.deepEqual(
       service.get('headData.headTags'),
       [{
@@ -90,7 +95,9 @@ module('Unit | Service | head tags', function(hooks) {
       }
     });
 
-    service.collectHeadTags();
+    run(() => {
+      service.collectHeadTags();
+    });
     assert.deepEqual(
       service.get('headData.headTags'),
       [{
@@ -120,7 +127,9 @@ module('Unit | Service | head tags', function(hooks) {
       }
     });
 
-    service.collectHeadTags();
+    run(() => {
+      service.collectHeadTags();
+    });
     assert.deepEqual(
       service.get('headData.headTags'),
       [{
@@ -189,7 +198,9 @@ module('Unit | Service | head tags', function(hooks) {
       }
     });
 
-    service.collectHeadTags();
+    run(() => {
+      service.collectHeadTags();
+    });
     assert.deepEqual(
       service.get('headData.headTags'),
       [
