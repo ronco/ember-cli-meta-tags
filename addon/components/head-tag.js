@@ -1,14 +1,14 @@
 import { reads } from '@ember/object/computed';
-import { on } from '@ember/object/evented';
 import Component from '@ember/component';
 import layout from '../templates/components/head-tag';
 
 export default Component.extend({
   layout: layout,
 
-  _setTagName: on('init', function() {
+  init() {
+    this._super(...arguments);
     this.set('tagName', this.get('headTag.type'));
-  }),
+  },
 
   // expected head tag attributes
   attributeBindings: [
