@@ -1,11 +1,11 @@
-import Ember from 'ember';
-
-const {
-  get
-} = Ember;
+import { guidFor } from '@ember/object/internals';
+import Service, { inject as service } from '@ember/service';
+import { assign } from '@ember/polyfills';
+import { A } from '@ember/array';
+import { get } from '@ember/object';
 
 //TODO: consider polyfilled Set
-const VALID_HEAD_TAGS = Ember.A([
+const VALID_HEAD_TAGS = A([
   'base',
   'link',
   'meta',
@@ -14,12 +14,8 @@ const VALID_HEAD_TAGS = Ember.A([
   'title'
 ]);
 
-const assign = Ember.assign ? Ember.assign : Ember.merge;
-
-const keys = Object.keys || Ember.keys;
-
-export default Ember.Service.extend({
-  headData: Ember.inject.service(),
+export default Service.extend({
+  headData: service(),
 
   // crawl up the active route stack and collect head tags
   collectHeadTags() {
@@ -28,12 +24,12 @@ export default Ember.Service.extend({
     if (!currentHandlerInfos) {
       currentHandlerInfos = this.get('router.router.currentHandlerInfos');
     }
-    let handlerInfos = Ember.A(currentHandlerInfos);
+    let handlerInfos = A(currentHandlerInfos);
     handlerInfos.forEach((handlerInfo) => {
       assign(tags, this._extractHeadTagsFromRoute(handlerInfo.handler));
     });
-    let tagArray = Ember.A(keys(tags)).map((id) => tags[id]);
-    this.set('headData.headTags', Ember.A(tagArray));
+    let tagArray = A(Object.keys(tags)).map((id) => tags[id]);
+    this.set('headData.headTags', A(tagArray));
   },
 
   _extractHeadTagsFromRoute(route) {
@@ -54,13 +50,13 @@ export default Ember.Service.extend({
   // ensure all tags have a tagId and build object keyed by id
   _buildTags(headTagsArray) {
     let tagMap = {};
-    Ember.A(headTagsArray).forEach(function(tagDefinition) {
+    A(headTagsArray).forEach(function(tagDefinition) {
       if(!VALID_HEAD_TAGS.includes(tagDefinition.type)) {
         return;
       }
       let tagId = tagDefinition.tagId;
       if (!tagId) {
-        tagId = Ember.guidFor(tagDefinition);
+        tagId = guidFor(tagDefinition);
       }
       tagMap[tagId] = tagDefinition;
     });

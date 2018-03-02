@@ -1,9 +1,9 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
 
-export default Ember.Route.extend(RouteMetaMixin, {
+export default Route.extend(RouteMetaMixin, {
   name: 'Ice-T',
-  meta: function() {
+  meta() {
     return {
       'property': {
         'og:name': this.get('name')
