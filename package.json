@@ -1,19 +1,19 @@
 {
-  "name": "ember-cli-meta-tags",
+  "name": "ember-cli-meta-data",
   "version": "4.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Ember meta data",
   "keywords": [
     "ember-addon"
   ],
   "license": "MIT",
-  "author": "Ron White <ronco@costite.com>",
+  "author": "Scott Newcomer",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ronco/ember-cli-meta-tags.git"
+    "url": "https://github.com/snewcomer/ember-cli-meta-tags.git"
   },
   "scripts": {
     "build": "ember build",
