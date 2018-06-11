@@ -1,4 +1,4 @@
-# Ember-cli-meta-tags [![Build Status](https://travis-ci.org/ronco/ember-cli-meta-tags.svg?branch=master)](https://travis-ci.org/ronco/ember-cli-meta-tags)[![Ember Observer Score](https://emberobserver.com/badges/ember-cli-meta-tags.svg)](https://emberobserver.com/addons/ember-cli-meta-tags)
+# ember-cli-meta-data [![Build Status](https://travis-ci.org/ronco/ember-cli-meta-data.svg?branch=master)](https://travis-ci.org/ronco/ember-cli-meta-data)[![Ember Observer Score](https://emberobserver.com/badges/ember-cli-meta-data.svg)](https://emberobserver.com/addons/ember-cli-meta-data)
 
 An [Ember CLI](http://www.ember-cli.com/) add-on to easily set tags
 (`link`, `meta`, `script`, `noscript`, etc.) in the document head.
@@ -13,7 +13,7 @@ correctly.
 This add-on is perfect for combining with a prerendering
 server side solution such as [prerender.io](http://www.prerender.io)
 or with
-[Ember Fastboot](https://github.com/tildeio/ember-cli-fastboot) (Fastboot compatibility requires ember-cli-meta-tags v2+ and Ember 2.7+ (currently beta)).
+[Ember Fastboot](https://github.com/tildeio/ember-cli-fastboot) (Fastboot compatibility requires ember-cli-meta-data v2+ and Ember 2.7+ (currently beta)).
 
 ## Usage
 
@@ -21,7 +21,7 @@ or with
 
 In your Ember CLI project directory run:
 ```
-ember install ember-cli-meta-tags
+ember install ember-cli-meta-data
 ```
 
 ### Using with Ember Fastboot
@@ -124,7 +124,7 @@ export default Ember.Route.extend({
   },
 
   setHeadTags: function(model) {
-    var headTags = [{
+    let headTags = [{
       type: 'meta',
       tagId: 'meta-description-tag',
       attrs: {

@@ -27,7 +27,7 @@ that returns the appropriate meta tags.
 ```javascript
 // app/routes/some-page.js
 import Ember from 'ember';
-import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
+import RouteMetaMixin from 'ember-cli-meta-data/mixins/route-meta';
 
 export default Ember.Route.extend(RouteMetaMixin, {
   meta: function() {
@@ -73,7 +73,7 @@ the didTransition event.
 ```javascript
 // app/routes/some-page.js
 import Ember from 'ember';
-import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
+import RouteMetaMixin from 'ember-cli-meta-data/mixins/route-meta';
 
 export default Ember.Route.extend(RouteMetaMixin, {
   meta: {
@@ -97,7 +97,7 @@ export default Ember.Route.extend(RouteMetaMixin,{
  },
 
  setMetaTags: function (model) {
-   var metaTags = {
+   let metaTags = {
      'name': {
        'description' : model.get('description'),
        'keywords'    : model.get('name')
@@ -123,7 +123,7 @@ the `meta` property function or object.
 ```javascript
 // app/routes/some-page.js
 import Ember from 'ember';
-import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
+import RouteMetaMixin from 'ember-cli-meta-data/mixins/route-meta';
 
 export default Ember.Route.extend(RouteMetaMixin, {
   meta: function() {
@@ -150,7 +150,7 @@ export default Ember.Controller.extend({
   // which by default does not trigger a full route transition
   // so we need to notify the mixin to reset the meta tags
   eraObserver: Ember.observer('era', function() {
-    // This action will cause the mixin to recompute the 
+    // This action will cause the mixin to recompute the
     //  meta tags for the current route
     this.send('resetMeta');
   }),
@@ -215,7 +215,7 @@ content-value is equal to 'Ice-T'.
   <meta property='og:name' content='Ice-T'>
   <meta property='twitter:name' content='Ice-T'>
 ```
-  
+
 #### resetMeta
 
 RouteMetaMixin routes respond to the `resetMeta` action.  This will

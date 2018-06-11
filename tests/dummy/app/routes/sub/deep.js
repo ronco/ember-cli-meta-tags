@@ -1,7 +1,7 @@
-import Ember from 'ember';
-import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
+import Route from '@ember/routing/route';
+import RouteMetaMixin from 'ember-cli-meta-data/mixins/route-meta';
 
-export default Ember.Route.extend(RouteMetaMixin, {
+export default Route.extend(RouteMetaMixin, {
   meta: function() {
     return {
       'property': {
