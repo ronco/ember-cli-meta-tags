@@ -13,24 +13,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/snewcomer/ember-cli-meta-tags.git"
+    "url": "https://github.com/snewcomer/ember-cli-meta-data.git"
   },
   "scripts": {
     "build": "ember build",
     "lint:js": "eslint ./*.js addon addon-test-support app config lib server test-support tests",
     "start": "ember serve",
-    "test": "ember try:each"
+    "test": "ember test",
+    "test:all": "ember try:each"
   },
   "dependencies": {
     "ember-cli-babel": "^6.6.0",
     "ember-cli-head": "^0.3.0",
-    "ember-cli-htmlbars": "^2.0.1",
-    "ember-runtime-enumerable-includes-polyfill": "^2.0.0"
+    "ember-cli-htmlbars": "^2.0.1"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
-    "ember-ajax": "^3.0.0",
-    "ember-cli": "~2.18.2",
+    "ember-cli": "~3.1.4",
     "ember-cli-dependency-checker": "^2.0.0",
     "ember-cli-eslint": "^4.2.1",
     "ember-cli-htmlbars-inline-precompile": "^1.0.0",
@@ -45,10 +44,11 @@
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-resolver": "^4.0.0",
     "ember-sinon": "^1.0.1",
-    "ember-source": "~2.18.0",
-    "ember-welcome-page": "^3.0.0",
+    "ember-source": "~3.2.0",
+    "ember-source-channel-url": "^1.1.0",
+    "ember-try": "^0.2.23",
     "eslint-plugin-ember": "^5.0.0",
-    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-node": "^6.0.1",
     "loader.js": "^4.2.3"
   },
   "engines": {
