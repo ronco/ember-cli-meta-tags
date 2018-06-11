@@ -1,25 +1,26 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('head-tags', 'Integration | Component | head tags', {
-  integration: true
-});
+module('Integration | Component | head tags', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders no self tag', function(assert) {
-  assert.expect(3);
+  test('it renders no self tag', async function(assert) {
+    assert.expect(2);
 
-  this.set('headTags', [
-    {
-      type: 'meta'
-    },
-    {
-      type: 'link'
-    }
-  ]);
-  this.render(hbs`{{head-tags headTags=headTags}}`);
+    this.set('headTags', [
+      {
+        type: 'meta'
+      },
+      {
+        type: 'link'
+      }
+    ]);
+    await render(hbs`{{head-tags headTags=headTags}}`);
 
-  assert.equal(this.$('>*').length, 2);
-  assert.equal(this.$('>meta').length, 1);
-  assert.equal(this.$('>link').length, 1);
+    assert.ok(this.element.querySelector('meta'), 'meta tag is present');
+    assert.ok(this.element.querySelector('link'), 'link tag is present');
 
+  });
 });
