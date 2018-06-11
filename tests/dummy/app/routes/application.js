@@ -6,6 +6,15 @@ export default Route.extend({
     this._super(...arguments);
     set(this, 'headTags', [
       {
+        type: 'meta',
+        tagId: 'og:title-property',
+        attrs: {
+          property: 'og:title',
+          dir: 'ltr',
+          content: 'Heyo'
+        }
+      },
+      {
         type: 'script',
         attrs: {
           type: 'application/ld+json'
