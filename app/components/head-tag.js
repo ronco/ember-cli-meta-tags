@@ -1,1 +1,1 @@
-export { default } from 'ember-cli-meta-data/components/head-tag';
+export { default } from 'ember-cli-meta-tags/components/head-tag';
