@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
-import RouteMetaMixin from 'ember-cli-meta-data/mixins/route-meta';
+import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
 import { set } from '@ember/object';
 
 export default Route.extend(RouteMetaMixin, {

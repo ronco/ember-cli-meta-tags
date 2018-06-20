@@ -27,7 +27,7 @@ that returns the appropriate meta tags.
 ```javascript
 // app/routes/some-page.js
 import Ember from 'ember';
-import RouteMetaMixin from 'ember-cli-meta-data/mixins/route-meta';
+import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
 
 export default Ember.Route.extend(RouteMetaMixin, {
   meta: function() {
@@ -73,7 +73,7 @@ the didTransition event.
 ```javascript
 // app/routes/some-page.js
 import Ember from 'ember';
-import RouteMetaMixin from 'ember-cli-meta-data/mixins/route-meta';
+import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
 
 export default Ember.Route.extend(RouteMetaMixin, {
   meta: {
@@ -123,7 +123,7 @@ the `meta` property function or object.
 ```javascript
 // app/routes/some-page.js
 import Ember from 'ember';
-import RouteMetaMixin from 'ember-cli-meta-data/mixins/route-meta';
+import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
 
 export default Ember.Route.extend(RouteMetaMixin, {
   meta: function() {

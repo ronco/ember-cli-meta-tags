@@ -2,7 +2,7 @@ import { run } from '@ember/runloop';
 import Route from '@ember/routing/route';
 import EmberObject from '@ember/object';
 import sinon from 'sinon';
-import RouteMetaMixin from 'ember-cli-meta-data/mixins/route-meta';
+import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
 
 import { module, test } from 'qunit';
 
