@@ -1,19 +1,21 @@
 {
-  "name": "ember-cli-meta-data",
-  "version": "4.1.0",
-  "description": "Ember meta data",
+  "name": "ember-cli-meta-tags",
+  "version": "4.0.0",
+  "description": "Ember meta tags",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "meta",
+    "sharing"
   ],
   "license": "MIT",
-  "author": "Scott Newcomer",
+  "author": "Ron White <ronco@costite.com>",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/snewcomer/ember-cli-meta-data.git"
+    "url": "https://github.com/ronco/ember-cli-meta-tags.git"
   },
   "scripts": {
     "build": "ember build",
