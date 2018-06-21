@@ -53,7 +53,7 @@ create a custom `app/templates/head.hbs` file and include
 
 ### Adding Tags Automatically On Transition
 
-In older to dynamically add head tags from your routes all you need to
+In order to dynamically add head tags from your routes all you need to
 do is provide a `headTags` property on the route.  This property can
 either be an array of tags, or a function which when invoked with the
 route's context returns an array of tags.  The head tags service will
