@@ -13,7 +13,7 @@ correctly.
 This add-on is perfect for combining with a prerendering
 server side solution such as [prerender.io](http://www.prerender.io)
 or with
-[Ember Fastboot](https://github.com/tildeio/ember-cli-fastboot) (Fastboot compatibility requires ember-cli-meta-tags v2+ and Ember 2.7+ (currently beta)).
+[Ember FastBoot](https://github.com/tildeio/ember-cli-fastboot) (FastBoot compatibility requires ember-cli-meta-tags v2+ and Ember 2.7+ (currently beta)).
 
 ## Usage
 
@@ -28,15 +28,15 @@ ember install ember-cli-meta-tags
 
 Version 5.0 of this addon depends on [ember-cli-head](https://github.com/ronco/ember-cli-head) 0.4.0, which adds the requirement that the `{{head-layout}}` is added once in an application-wide template (usually `app/templates/application.hbs`). For more info, see the [ember-cli-head 0.4 upgrade note](https://github.com/ronco/ember-cli-head#upgrade-to-04x).
 
-### Using with Ember Fastboot
+### Using with Ember FastBoot
 
-Version 4.0+ of this addon is designed to work with Fastboot >= 1.0.0-rc1. If you use
+Version 4.0+ of this addon is designed to work with FastBoot >= 1.0.0-rc1. If you use
 an order version of fastboot stick with 3.X.
 
 Version 2.0+ of this addon is built upon
 [ember-cli-head](https://github.com/ronco/ember-cli-head) and as a
-result is will work automatically out of the box with Ember Fastboot
-if you are running a version of ember >= 2.7.
+result it will work automatically out of the box with Ember FastBoot
+if you are running a version of Ember >= 2.7.
 
 #### Using with other ember-cli-head addons
 
@@ -53,7 +53,7 @@ create a custom `app/templates/head.hbs` file and include
 
 ### Adding Tags Automatically On Transition
 
-In order to dynamically add head tags from your routes all you need to
+In older to dynamically add head tags from your routes all you need to
 do is provide a `headTags` property on the route.  This property can
 either be an array of tags, or a function which when invoked with the
 route's context returns an array of tags.  The head tags service will
