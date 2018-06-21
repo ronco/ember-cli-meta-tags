@@ -1,13 +1,26 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
+import { set } from '@ember/object';
 
-export default Ember.Route.extend({
-  headTags: [
-    {
-      type: 'script',
-      attrs: {
-        type: 'application/ld+json'
+export default Route.extend({
+  init() {
+    this._super(...arguments);
+    set(this, 'headTags', [
+      {
+        type: 'meta',
+        tagId: 'og:title-property',
+        attrs: {
+          property: 'og:title',
+          dir: 'ltr',
+          content: 'Heyo'
+        }
       },
-      content: `{"@context":"Old school".}`
-    }
-  ]
+      {
+        type: 'script',
+        attrs: {
+          type: 'application/ld+json'
+        },
+        content: `{"@context":"Old school".}`
+      }
+    ]);
+  }
 });

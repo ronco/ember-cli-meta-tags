@@ -1,4 +1,4 @@
-# Ember-cli-meta-tags [![Build Status](https://travis-ci.org/ronco/ember-cli-meta-tags.svg?branch=master)](https://travis-ci.org/ronco/ember-cli-meta-tags)[![Ember Observer Score](https://emberobserver.com/badges/ember-cli-meta-tags.svg)](https://emberobserver.com/addons/ember-cli-meta-tags)
+# ember-cli-meta-tags [![Build Status](https://travis-ci.org/ronco/ember-cli-meta-tags.svg?branch=master)](https://travis-ci.org/ronco/ember-cli-meta-tags)[![Ember Observer Score](https://emberobserver.com/badges/ember-cli-meta-tags.svg)](https://emberobserver.com/addons/ember-cli-meta-tags)
 
 An [Ember CLI](http://www.ember-cli.com/) add-on to easily set tags
 (`link`, `meta`, `script`, `noscript`, etc.) in the document head.
@@ -124,7 +124,7 @@ export default Ember.Route.extend({
   },
 
   setHeadTags: function(model) {
-    var headTags = [{
+    let headTags = [{
       type: 'meta',
       tagId: 'meta-description-tag',
       attrs: {

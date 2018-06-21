@@ -1,8 +1,9 @@
-import Ember from 'ember';
+import { A } from '@ember/array';
+import Component from '@ember/component';
 import layout from '../templates/components/head-tags';
 
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: '',
-  headTags: Ember.A([]),
+  headTags: A([]),
   layout: layout
 });
