@@ -24,6 +24,8 @@ In your Ember CLI project directory run:
 ember install ember-cli-meta-tags
 ```
 
+And add `{{head-layout}}` to the top of your application template.  Required for version `0.5.0` or greater.
+
 ### Using with Ember Fastboot
 
 Version 4.0+ of this addon is designed to work with Fastboot >= 1.0.0-rc1. If you use
@@ -94,9 +96,9 @@ the didTransition event.
 ###### Example: static headTags property on the route
 ```javascript
 // app/routes/some-page.js
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
   headTags: [{
       type: 'meta',
       tagId: 'meta-og-name',
@@ -118,7 +120,9 @@ export default Ember.Route.extend({
 
 ###### Example: Setting the headTags property in afterModel
 ```javascript
-export default Ember.Route.extend({
+import Route from '@ember/routing/route';
+
+export default Route.extend({
   afterModel: function(model) {
     this.setHeadTags(model);
   },
@@ -147,9 +151,9 @@ that returns the appropriate head tags.
 
 ```javascript
 // app/routes/some-page.js
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
   headTags: function() {
     // here we are pulling meta data from the model for this route
     let model = this.modelFor(this.routeName);
@@ -190,9 +194,9 @@ all of the headTags in the current route hierarchy will be re-built.
 
 ```javascript
 // app/routes/some-page.js
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend(RouteMetaMixin, {
+export default Route.extend(RouteMetaMixin, {
   headTags: function() {
     let controller = this.controllerFor(this.routeName);
     // value of head tags updates with value of `era` on this
@@ -210,9 +214,9 @@ export default Ember.Route.extend(RouteMetaMixin, {
 
 
 // app/controller/some-page.js
-import Ember from 'ember';
+import Controller from '@ember/controller';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   headTagsService: Ember.inject.service('head-tags'),
   queryParameters: {
     era: 'e'
@@ -240,17 +244,16 @@ Instructions for developing on this add-on.
 
 * `git clone` this repository
 * `npm install`
-* `bower install`
 
 ### Running
 
-* `ember server`
+* `ember serve`
 * Visit your app at http://localhost:4200.
 
 ### Running Tests
 
 * `ember test`
-* `ember test --server`
+* `ember test --serve`
 
 ### Building
 
