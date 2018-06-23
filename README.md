@@ -125,11 +125,11 @@ export default Route.extend({
 import Route from '@ember/routing/route';
 
 export default Route.extend({
-  afterModel: function(model) {
+  afterModel(model) {
     this.setHeadTags(model);
   },
 
-  setHeadTags: function(model) {
+  setHeadTags(model) {
     let headTags = [{
       type: 'meta',
       tagId: 'meta-description-tag',
@@ -156,7 +156,7 @@ that returns the appropriate head tags.
 import Route from '@ember/routing/route';
 
 export default Route.extend({
-  headTags: function() {
+  headTags() {
     // here we are pulling meta data from the model for this route
     let model = this.modelFor(this.routeName);
     return [{
@@ -199,7 +199,7 @@ all of the headTags in the current route hierarchy will be re-built.
 import Route from '@ember/routing/route';
 
 export default Route.extend(RouteMetaMixin, {
-  headTags: function() {
+  headTags() {
     let controller = this.controllerFor(this.routeName);
     // value of head tags updates with value of `era` on this
     // route's controller
