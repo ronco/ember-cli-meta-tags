@@ -1,5 +1,18 @@
 # Change Log
 
+## [5.0.0](https://github.com/ronco/ember-cli-meta-tags/tree/5.0.0) (2018-06-25)
+[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v4.1.0...5.0.0)
+
+- update `ember-cli-head` to 0.4.1, finally resolving issues with the addon and newer versions of ember
+
+## [4.1.0](https://github.com/ronco/ember-cli-meta-tags/tree/4.1.0) (2018-06-25)
+[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v3.1.0...4.1.0)
+
+- update `ember-source` to 3.2.x
+- update `ember-cli` to 3.1.x
+
+This is a maintenance release without any breaking changes, in preparation of 5.0.0
+
 ## [3.1.0](https://github.com/ronco/ember-cli-meta-tags/tree/3.1.0) (2017-04-29)
 [Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v3.0.4...3.1.0)
 

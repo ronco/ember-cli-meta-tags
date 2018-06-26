@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-meta-tags",
-  "version": "4.1.0",
+  "version": "5.0.0",
   "description": "Ember meta tags",
   "keywords": [
     "ember-addon",
@@ -9,6 +9,11 @@
   ],
   "license": "MIT",
   "author": "Ron White <ronco@costite.com>",
+  "contributors": [
+    "Scott Newcomer <snewcomer24@gmail.com> (https://github.com/snewcomer)",
+    "Nikola Begedin <begedinnikola@gmail.com> (https://github.com/begedin)",
+    "Josh Smith <josh@coderly.com> (https://github.com/joshsmith)"
+  ],
   "directories": {
     "doc": "doc",
     "test": "tests"
