@@ -35,6 +35,7 @@
     "ember-cli-htmlbars": "^2.0.1"
   },
   "devDependencies": {
+    "@types/ember": "^2.8.4",
     "broccoli-asset-rev": "^2.4.5",
     "ember-cli": "~3.1.4",
     "ember-cli-dependency-checker": "^2.0.0",
