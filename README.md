@@ -13,7 +13,7 @@ correctly.
 This add-on is perfect for combining with a prerendering
 server side solution such as [prerender.io](http://www.prerender.io)
 or with
-[Ember Fastboot](https://github.com/tildeio/ember-cli-fastboot) (Fastboot compatibility requires ember-cli-meta-tags v2+ and Ember 2.7+ (currently beta)).
+[Ember FastBoot](https://github.com/tildeio/ember-cli-fastboot) (FastBoot compatibility requires ember-cli-meta-tags v2+ and Ember 2.7+ (currently beta)).
 
 ## Usage
 
@@ -24,15 +24,19 @@ In your Ember CLI project directory run:
 ember install ember-cli-meta-tags
 ```
 
-### Using with Ember Fastboot
+### Upgrading to 5.x
 
-Version 4.0+ of this addon is designed to work with Fastboot >= 1.0.0-rc1. If you use
+Version 5.0 of this addon depends on [ember-cli-head](https://github.com/ronco/ember-cli-head) 0.4.0, which adds the requirement that the `{{head-layout}}` is added once in an application-wide template (usually `app/templates/application.hbs`). For more info, see the [ember-cli-head 0.4 upgrade note](https://github.com/ronco/ember-cli-head#upgrade-to-04x).
+
+### Using with Ember FastBoot
+
+Version 4.0+ of this addon is designed to work with FastBoot >= 1.0.0-rc1. If you use
 an order version of fastboot stick with 3.X.
 
 Version 2.0+ of this addon is built upon
 [ember-cli-head](https://github.com/ronco/ember-cli-head) and as a
-result is will work automatically out of the box with Ember Fastboot
-if you are running a version of ember >= 2.7.
+result it will work automatically out of the box with Ember FastBoot
+if you are running a version of Ember >= 2.7.
 
 #### Using with other ember-cli-head addons
 
@@ -94,9 +98,9 @@ the didTransition event.
 ###### Example: static headTags property on the route
 ```javascript
 // app/routes/some-page.js
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
   headTags: [{
       type: 'meta',
       tagId: 'meta-og-name',
@@ -118,12 +122,14 @@ export default Ember.Route.extend({
 
 ###### Example: Setting the headTags property in afterModel
 ```javascript
-export default Ember.Route.extend({
-  afterModel: function(model) {
+import Route from '@ember/routing/route';
+
+export default Route.extend({
+  afterModel(model) {
     this.setHeadTags(model);
   },
 
-  setHeadTags: function(model) {
+  setHeadTags(model) {
     let headTags = [{
       type: 'meta',
       tagId: 'meta-description-tag',
@@ -147,10 +153,10 @@ that returns the appropriate head tags.
 
 ```javascript
 // app/routes/some-page.js
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
-  headTags: function() {
+export default Route.extend({
+  headTags() {
     // here we are pulling meta data from the model for this route
     let model = this.modelFor(this.routeName);
     return [{
@@ -190,10 +196,10 @@ all of the headTags in the current route hierarchy will be re-built.
 
 ```javascript
 // app/routes/some-page.js
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend(RouteMetaMixin, {
-  headTags: function() {
+export default Route.extend(RouteMetaMixin, {
+  headTags() {
     let controller = this.controllerFor(this.routeName);
     // value of head tags updates with value of `era` on this
     // route's controller
@@ -210,9 +216,9 @@ export default Ember.Route.extend(RouteMetaMixin, {
 
 
 // app/controller/some-page.js
-import Ember from 'ember';
+import Controller from '@ember/controller';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   headTagsService: Ember.inject.service('head-tags'),
   queryParameters: {
     era: 'e'
@@ -240,17 +246,16 @@ Instructions for developing on this add-on.
 
 * `git clone` this repository
 * `npm install`
-* `bower install`
 
 ### Running
 
-* `ember server`
+* `ember serve`
 * Visit your app at http://localhost:4200.
 
 ### Running Tests
 
 * `ember test`
-* `ember test --server`
+* `ember test --serve`
 
 ### Building
 
