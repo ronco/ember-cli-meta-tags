@@ -19,7 +19,7 @@ module('Integration | Component | head tag', function(hooks) {
 
     await render(hbs`{{head-tag headTag=headTag}}`);
 
-    assert.equal(this.$('>link').length, 1);
+    assert.equal(this.element.querySelectorAll('link').length, 1);
   });
 
   test('it can render content', async function(assert) {
@@ -36,7 +36,7 @@ module('Integration | Component | head tag', function(hooks) {
 
     await render(hbs`{{head-tag headTag=headTag}}`);
 
-    assert.equal(this.$('>script').text().trim(), 'foo-bar');
+    assert.equal(this.element.querySelector('script').textContent.trim(), 'foo-bar');
   });
 
   test('it renders attributes', async function(assert) {
@@ -70,9 +70,9 @@ module('Integration | Component | head tag', function(hooks) {
       }
     );
     await render(hbs`{{head-tag headTag=headTag id='test-comp'}}`);
-    let elem = this.$('#test-comp');
+    let elem = this.element.querySelector('#test-comp');
     Object.keys(attrs).forEach(function(key) {
-      assert.equal(elem.attr(key), attrs[key]);
+      assert.equal(elem.getAttribute(key), attrs[key]);
     });
 
   });

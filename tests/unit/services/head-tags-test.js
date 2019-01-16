@@ -2,6 +2,7 @@ import { computed } from '@ember/object';
 import { run } from '@ember/runloop';
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
+import { defineProperty } from '@ember/object';
 
 module('Unit | Service | head tags', function(hooks) {
   setupTest(hooks);
@@ -21,42 +22,10 @@ module('Unit | Service | head tags', function(hooks) {
     };
     let service = this.owner.factoryFor('service:head-tags').create({
       router: {
-        _routerMicrolib: {
-          currentHandlerInfos: [{ handler }]
-        }
-      }
-    });
-
-    run(() => {
-      service.collectHeadTags();
-    });
-    assert.deepEqual(
-      service.get('headData.headTags'),
-      [{
-        type: 'link',
-        attrs: {
-          rel: 'canonical'
-        }
-      }]
-    );
-  });
-
-  test('it has fallback for pre-deprecated `router.router`', function(assert) {
-    assert.expect(1);
-    let handler = {
-      headTags() {
-        return [{
-          type: 'link',
-          attrs: {
-            rel: 'canonical'
+        targetState: {
+          routerJsState: {
+            routeInfos: [{ handler }]
           }
-        }];
-      }
-    };
-    let service = this.owner.factoryFor('service:head-tags').create({
-      router: {
-        router: {
-          currentHandlerInfos: [{ handler }]
         }
       }
     });
@@ -77,20 +46,22 @@ module('Unit | Service | head tags', function(hooks) {
 
   test('it collects head tags from CP', function(assert) {
     assert.expect(1);
-    let handler = {
-      headTags: computed(function() {
+
+    let handler = {};
+    defineProperty(handler, 'headTags', computed(function() {
         return [{
           type: 'link',
           attrs: {
             rel: 'canonical'
           }
         }];
-      })
-    };
+    }));
     let service = this.owner.factoryFor('service:head-tags').create({
       router: {
-        _routerMicrolib: {
-          currentHandlerInfos: [{ handler }]
+        targetState: {
+          routerJsState: {
+            routeInfos: [{ handler }]
+          }
         }
       }
     });
@@ -121,8 +92,10 @@ module('Unit | Service | head tags', function(hooks) {
     };
     let service = this.owner.factoryFor('service:head-tags').create({
       router: {
-        _routerMicrolib: {
-          currentHandlerInfos: [{ handler }]
+        targetState: {
+          routerJsState: {
+            routeInfos: [{ handler }]
+          }
         }
       }
     });
@@ -192,8 +165,10 @@ module('Unit | Service | head tags', function(hooks) {
     ];
     let service = this.owner.factoryFor('service:head-tags').create({
       router: {
-        _routerMicrolib: {
-          currentHandlerInfos: handlers
+        targetState: {
+          routerJsState: {
+            routeInfos: handlers
+          }
         }
       }
     });

@@ -20,9 +20,9 @@ export default Service.extend({
   // crawl up the active route stack and collect head tags
   collectHeadTags() {
     let tags = {};
-    let currentHandlerInfos = this.get('router._routerMicrolib.currentHandlerInfos');
+    let currentHandlerInfos = this.get('router.targetState.routerJsState.routeInfos');
     if (!currentHandlerInfos) {
-      currentHandlerInfos = this.get('router.router.currentHandlerInfos');
+      currentHandlerInfos = this.get('router.currentState.routerJsState.routeInfos');
     }
     let handlerInfos = A(currentHandlerInfos);
     handlerInfos.forEach((handlerInfo) => {
