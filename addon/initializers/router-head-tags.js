@@ -6,9 +6,13 @@ export function initialize() {
   Router.reopen({
     headTags: service(),
 
-    didTransition() {
-      get(this, 'headTags').collectHeadTags();
+    init() {
       this._super(...arguments);
+
+      this.on('routeDidChange', () => {
+        get(this, 'headTags').collectHeadTags();
+        this._super(...arguments);
+      });
     }
   });
 }
