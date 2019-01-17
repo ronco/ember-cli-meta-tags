@@ -9,7 +9,7 @@ module('Acceptance: RouteMetaMixin', function(hooks) {
     document.querySelector('head meta[property^="og:"]').remove();
   });
 
-  test('scott Can set dir on application route', async function(assert) {
+  test('Can set dir on application route', async function(assert) {
     await visit('/');
     assert.equal(
       await document.querySelectorAll('meta[property="og:title"]').length,
