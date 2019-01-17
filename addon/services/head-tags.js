@@ -22,7 +22,8 @@ export default Service.extend({
     let tags = {};
     let currentHandlerInfos = this.get('router.targetState.routerJsState.routeInfos');
     if (!currentHandlerInfos) {
-      currentHandlerInfos = this.get('router.currentState.routerJsState.routeInfos');
+      // 3.4 and lower
+      currentHandlerInfos = this.get('router.router.currentHandlerInfos');
     }
     let handlerInfos = A(currentHandlerInfos);
     handlerInfos.forEach((handlerInfo) => {
