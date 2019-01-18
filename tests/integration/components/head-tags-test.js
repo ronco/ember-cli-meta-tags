@@ -17,10 +17,10 @@ module('Integration | Component | head tags', function(hooks) {
         type: 'link'
       }
     ]);
+
     await render(hbs`{{head-tags headTags=headTags}}`);
 
     assert.ok(this.element.querySelector('meta'), 'meta tag is present');
     assert.ok(this.element.querySelector('link'), 'link tag is present');
-
   });
 });
