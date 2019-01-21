@@ -127,6 +127,26 @@ module('Unit | Service | head tags', function(hooks) {
     assert.expect(1);
     let routes = [
       {
+        handler: {
+          headTags: [
+            {
+              type: 'link',
+              tagId: 'canonical-link',
+              attrs: {
+                rel: 'canonical',
+                href: 'root-canonical'
+              }
+            },
+            {
+              type: 'meta',
+              tagId: 'meta-name',
+              attrs: {
+                name: 'foo',
+                content: 'root-meta'
+              }
+            }
+          ]
+        },
         route: {
           headTags: [
             {
@@ -148,6 +168,28 @@ module('Unit | Service | head tags', function(hooks) {
           ]
         }
       },{
+        handler: {
+          headTags() {
+            return [
+              {
+                type: 'link',
+                tagId: 'canonical-link',
+                attrs: {
+                  rel: 'canonical',
+                  href: 'nested-canonical'
+                }
+              },
+              {
+                type: 'meta',
+                tagId: 'meta-title',
+                attrs: {
+                  title: 'foo',
+                  content: 'nested-meta'
+                }
+              }
+            ];
+          }
+        },
         route: {
           headTags() {
             return [
