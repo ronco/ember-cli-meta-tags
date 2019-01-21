@@ -34,7 +34,7 @@ export default Service.extend({
 
     let handlerInfos = A(currentHandlerInfos);
     handlerInfos.forEach((handlerInfo) => {
-      assign(tags, this._extractHeadTagsFromRoute(handlerInfo.handler));
+      assign(tags, this._extractHeadTagsFromRoute(handlerInfo.route));
     });
     let tagArray = A(Object.keys(tags)).map((id) => tags[id]);
     this.set('headData.headTags', A(tagArray));
