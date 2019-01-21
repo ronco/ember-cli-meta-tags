@@ -23,7 +23,7 @@ module('Unit | Service | head tags', function(hooks) {
     let service = this.owner.factoryFor('service:head-tags').create({
       router: {
         _routerMicrolib: {
-          currentHandlerInfos: [{ route }]
+          currentHandlerInfos: [{ handler: route, route }]
         },
         targetState: {
           routerJsState: {
@@ -62,7 +62,7 @@ module('Unit | Service | head tags', function(hooks) {
     let service = this.owner.factoryFor('service:head-tags').create({
       router: {
         _routerMicrolib: {
-          currentHandlerInfos: [{ route }]
+          currentHandlerInfos: [{ handler: route, route }]
         },
         targetState: {
           routerJsState: {
@@ -99,7 +99,7 @@ module('Unit | Service | head tags', function(hooks) {
     let service = this.owner.factoryFor('service:head-tags').create({
       router: {
         _routerMicrolib: {
-          currentHandlerInfos: [{ route }]
+          currentHandlerInfos: [{ handler: route, route }]
         },
         targetState: {
           routerJsState: {
