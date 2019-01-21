@@ -10,7 +10,7 @@ module('Unit | Service | head tags', function(hooks) {
   // Replace this with your real tests.
   test('it collects head tags from function', function(assert) {
     assert.expect(1);
-    let handler = {
+    let route = {
       headTags() {
         return [{
           type: 'link',
@@ -23,11 +23,11 @@ module('Unit | Service | head tags', function(hooks) {
     let service = this.owner.factoryFor('service:head-tags').create({
       router: {
         _routerMicrolib: {
-          currentHandlerInfos: [{ handler }]
+          currentHandlerInfos: [{ handler: route, route }]
         },
         targetState: {
           routerJsState: {
-            routeInfos: [{ handler }]
+            routeInfos: [{ route }]
           }
         }
       }
@@ -50,8 +50,8 @@ module('Unit | Service | head tags', function(hooks) {
   test('it collects head tags from CP', function(assert) {
     assert.expect(1);
 
-    let handler = {};
-    defineProperty(handler, 'headTags', computed(function() {
+    let route = {};
+    defineProperty(route, 'headTags', computed(function() {
         return [{
           type: 'link',
           attrs: {
@@ -62,11 +62,11 @@ module('Unit | Service | head tags', function(hooks) {
     let service = this.owner.factoryFor('service:head-tags').create({
       router: {
         _routerMicrolib: {
-          currentHandlerInfos: [{ handler }]
+          currentHandlerInfos: [{ handler: route, route }]
         },
         targetState: {
           routerJsState: {
-            routeInfos: [{ handler }]
+            routeInfos: [{ route }]
           }
         }
       }
@@ -88,7 +88,7 @@ module('Unit | Service | head tags', function(hooks) {
 
   test('it collects head tags from property array', function(assert) {
     assert.expect(1);
-    let handler = {
+    let route = {
       headTags: [{
         type: 'link',
         attrs: {
@@ -99,11 +99,11 @@ module('Unit | Service | head tags', function(hooks) {
     let service = this.owner.factoryFor('service:head-tags').create({
       router: {
         _routerMicrolib: {
-          currentHandlerInfos: [{ handler }]
+          currentHandlerInfos: [{ handler: route, route }]
         },
         targetState: {
           routerJsState: {
-            routeInfos: [{ handler }]
+            routeInfos: [{ route }]
           }
         }
       }
@@ -125,9 +125,29 @@ module('Unit | Service | head tags', function(hooks) {
 
   test('it collects nested tags', function(assert) {
     assert.expect(1);
-    let handlers = [
+    let routes = [
       {
         handler: {
+          headTags: [
+            {
+              type: 'link',
+              tagId: 'canonical-link',
+              attrs: {
+                rel: 'canonical',
+                href: 'root-canonical'
+              }
+            },
+            {
+              type: 'meta',
+              tagId: 'meta-name',
+              attrs: {
+                name: 'foo',
+                content: 'root-meta'
+              }
+            }
+          ]
+        },
+        route: {
           headTags: [
             {
               type: 'link',
@@ -169,17 +189,39 @@ module('Unit | Service | head tags', function(hooks) {
               }
             ];
           }
+        },
+        route: {
+          headTags() {
+            return [
+              {
+                type: 'link',
+                tagId: 'canonical-link',
+                attrs: {
+                  rel: 'canonical',
+                  href: 'nested-canonical'
+                }
+              },
+              {
+                type: 'meta',
+                tagId: 'meta-title',
+                attrs: {
+                  title: 'foo',
+                  content: 'nested-meta'
+                }
+              }
+            ];
+          }
         }
       }
     ];
     let service = this.owner.factoryFor('service:head-tags').create({
       router: {
         _routerMicrolib: {
-          currentHandlerInfos: handlers
+          currentHandlerInfos: routes
         },
         targetState: {
           routerJsState: {
-            routeInfos: handlers
+            routeInfos: routes
           }
         }
       }

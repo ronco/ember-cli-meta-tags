@@ -34,7 +34,11 @@ export default Service.extend({
 
     let handlerInfos = A(currentHandlerInfos);
     handlerInfos.forEach((handlerInfo) => {
-      assign(tags, this._extractHeadTagsFromRoute(handlerInfo.handler));
+      if (gte('3.6.0-beta.1')) {
+        assign(tags, this._extractHeadTagsFromRoute(handlerInfo.route));
+      } else {
+        assign(tags, this._extractHeadTagsFromRoute(handlerInfo.handler));
+      }
     });
     let tagArray = A(Object.keys(tags)).map((id) => tags[id]);
     this.set('headData.headTags', A(tagArray));
