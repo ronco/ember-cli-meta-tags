@@ -31,7 +31,8 @@ export default Component.extend({
     'defer',
     'src',
     'property',
-    'itemprop'
+    'itemprop',
+    'id'
   ],
   href:         reads('headTag.attrs.href'),
   target:       reads('headTag.attrs.target'),
@@ -52,6 +53,7 @@ export default Component.extend({
   defer:        reads('headTag.attrs.defer'),
   src:          reads('headTag.attrs.src'),
   property:     reads('headTag.attrs.property'),
-  itemprop:     reads('headTag.attrs.itemprop')
+  itemprop:     reads('headTag.attrs.itemprop'),
+  id:     reads('headTag.attrs.id')
 
 });
