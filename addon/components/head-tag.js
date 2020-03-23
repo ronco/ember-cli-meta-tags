@@ -54,6 +54,6 @@ export default Component.extend({
   src:          reads('headTag.attrs.src'),
   property:     reads('headTag.attrs.property'),
   itemprop:     reads('headTag.attrs.itemprop'),
-  id:     reads('headTag.attrs.id')
+  id:           reads('headTag.attrs.id')
 
 });
