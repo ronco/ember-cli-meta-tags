@@ -1,15 +1,15 @@
-{{head-layout}}
+<HeadLayout />
 
 <h2 id="title">Welcome to Ember.js</h2>
 
 <ul>
-  <li>{{#link-to "route-1"}}route-1{{/link-to}}</li>
-  <li>{{#link-to "route-2"}}route-2{{/link-to}}</li>
-  <li>{{#link-to "route-object-1"}}route-object-1{{/link-to}}</li>
-  <li>{{#link-to "route-object-2"}}route-object-2{{/link-to}}</li>
-  <li>{{#link-to "resource"}}resource{{/link-to}}</li>
-  <li>{{#link-to "sub"}}resource/sub{{/link-to}}</li>
-  <li>{{#link-to "sub.deep"}}resource/sub/deep{{/link-to}}</li>
+  <li><LinkTo @route="route-1">route-1</LinkTo></li>
+  <li><LinkTo @route="route-2">route-2</LinkTo></li>
+  <li><LinkTo @route="route-object-1">route-object-1</LinkTo></li>
+  <li><LinkTo @route="route-object-2">route-object-2</LinkTo></li>
+  <li><LinkTo @route="resource">resource</LinkTo></li>
+  <li><LinkTo @route="sub">sub</LinkTo></li>
+  <li><LinkTo @route="sub.deep">resource/sub/deep</LinkTo></li>
 </ul>
 
 {{outlet}}
