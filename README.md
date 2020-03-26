@@ -48,7 +48,7 @@ create a custom `app/templates/head.hbs` file and include
 `ember-cli-meta-tag`'s component:
 
 ```hbs
-{{head-tags headTags=model.headTags}}
+<HeadTags @headTags={{@model.headTags}} />
 ```
 
 ### Adding Tags Automatically On Transition
