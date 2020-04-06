@@ -13,7 +13,7 @@ correctly.
 This add-on is perfect for combining with a prerendering
 server side solution such as [prerender.io](http://www.prerender.io)
 or with
-[Ember FastBoot](https://github.com/tildeio/ember-cli-fastboot) (FastBoot compatibility requires ember-cli-meta-tags v2+ and Ember 2.7+ (currently beta)).
+[Ember FastBoot](https://github.com/tildeio/ember-cli-fastboot) (FastBoot compatibility requires ember-cli-meta-tags v2+ and Ember 2.7+).
 
 ## Usage
 
@@ -26,7 +26,7 @@ ember install ember-cli-meta-tags
 
 ### Upgrading to 5.x
 
-Version 5.0 of this addon depends on [ember-cli-head](https://github.com/ronco/ember-cli-head) 0.4.0, which adds the requirement that the `{{head-layout}}` is added once in an application-wide template (usually `app/templates/application.hbs`). For more info, see the [ember-cli-head 0.4 upgrade note](https://github.com/ronco/ember-cli-head#upgrade-to-04x).
+Version 5.0 of this addon depends on [ember-cli-head](https://github.com/ronco/ember-cli-head) 0.4.0, which adds the requirement that the `<HeadLayout />` is added once in an application-wide template (usually `app/templates/application.hbs`). For more info, see the [ember-cli-head 0.4 upgrade note](https://github.com/ronco/ember-cli-head#upgrade-to-04x).
 
 ### Using with Ember FastBoot
 
@@ -48,7 +48,7 @@ create a custom `app/templates/head.hbs` file and include
 `ember-cli-meta-tag`'s component:
 
 ```hbs
-{{head-tags headTags=model.headTags}}
+<HeadTags @headTags={{@model.headTags}} />
 ```
 
 ### Adding Tags Automatically On Transition
