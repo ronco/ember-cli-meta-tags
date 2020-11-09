@@ -45,6 +45,10 @@ export default Service.extend({
   },
 
   _extractHeadTagsFromRoute(route) {
+    if (!route) {
+      return {};
+    }
+    
     let headTags = get(route, 'headTags');
     if (!headTags) {
       return {};
