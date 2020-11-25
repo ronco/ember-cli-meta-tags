@@ -1,5 +1,12 @@
 # Change Log
 
+## [6.1.2](https://github.com/ronco/ember-cli-meta-tags/tree/6.1.2) (2020-11-09)
+[Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v5.3.0...6.1.2)
+
+- Minimum Node 10
+- Upgrade ember-cli-head to `1.0.0` to avoid deprecations
+- Fix bug with `head.hbs` and using correct context
+
 ## [5.0.0](https://github.com/ronco/ember-cli-meta-tags/tree/5.0.0) (2018-06-25)
 [Full Changelog](https://github.com/ronco/ember-cli-meta-tags/compare/v4.1.0...5.0.0)
 
