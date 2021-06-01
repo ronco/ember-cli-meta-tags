@@ -58,7 +58,6 @@ module('Integration | Component | head tag', function(hooks) {
       'src',
       'property',
       'itemprop',
-      'id'
     ]).forEach(function(attr) {
       attrs[attr] = `the-${attr}`;
     });

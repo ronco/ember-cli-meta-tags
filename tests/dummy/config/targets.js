@@ -7,5 +7,5 @@ const browsers = [
 ];
 
 module.exports = {
-  browsers
+  browsers,
 };
