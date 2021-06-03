@@ -111,3 +111,15 @@ module('Acceptance: RouteMetaMixin', function(hooks) {
     );
   });
 });
+
+module('Acceptance: RouteMetaMixin with failure', function(hooks) {
+  setupApplicationTest(hooks);
+
+  test('Does not have meta if model hook fails', async function(assert) {
+    await visit('/route-with-error');
+    assert.equal(
+      await document.querySelectorAll('meta[property="og:name"]').length,
+      0
+    );
+  });
+});
