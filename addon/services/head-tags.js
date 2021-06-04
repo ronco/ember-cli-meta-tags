@@ -12,7 +12,7 @@ const VALID_HEAD_TAGS = A([
   'meta',
   'script',
   'noscript',
-  'title'
+  'title',
 ]);
 
 export default Service.extend({
@@ -24,11 +24,17 @@ export default Service.extend({
     let currentHandlerInfos;
 
     if (gte('3.6.0-beta.1')) {
-      currentHandlerInfos = this.get('router.targetState.routerJsState.routeInfos');
+      currentHandlerInfos = get(
+        this,
+        'router.targetState.routerJsState.routeInfos'
+      );
     } else {
-      currentHandlerInfos = this.get('router._routerMicrolib.currentHandlerInfos');
+      currentHandlerInfos = get(
+        this,
+        'router._routerMicrolib.currentHandlerInfos'
+      );
       if (!currentHandlerInfos) {
-        currentHandlerInfos = this.get('router.router.currentHandlerInfos');
+        currentHandlerInfos = get(this, 'router.router.currentHandlerInfos');
       }
     }
 
@@ -48,8 +54,8 @@ export default Service.extend({
     if (!route) {
       return {};
     }
-    
-    let headTags = get(route, 'headTags');
+
+    let headTags = route.headTags;
     if (!headTags) {
       return {};
     }
@@ -66,8 +72,8 @@ export default Service.extend({
   // ensure all tags have a tagId and build object keyed by id
   _buildTags(headTagsArray) {
     let tagMap = {};
-    A(headTagsArray).forEach(function(tagDefinition) {
-      if(!VALID_HEAD_TAGS.includes(tagDefinition.type)) {
+    A(headTagsArray).forEach(function (tagDefinition) {
+      if (!VALID_HEAD_TAGS.includes(tagDefinition.type)) {
         return;
       }
       let tagId = tagDefinition.tagId;
@@ -77,5 +83,5 @@ export default Service.extend({
       tagMap[tagId] = tagDefinition;
     });
     return tagMap;
-  }
+  },
 });

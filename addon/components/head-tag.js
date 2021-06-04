@@ -7,7 +7,7 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
-    this.set('tagName', this.get('headTag.type'));
+    this.set('tagName', this.headTag.type);
   },
 
   // expected head tag attributes
@@ -32,28 +32,27 @@ export default Component.extend({
     'src',
     'property',
     'itemprop',
-    'id'
+    'id',
   ],
-  href:         reads('headTag.attrs.href'),
-  target:       reads('headTag.attrs.target'),
-  charset:      reads('headTag.attrs.charset'),
-  crossorigin:  reads('headTag.attrs.crossorigin'),
-  dir:          reads('headTag.attrs.dir'),
-  hreflang:     reads('headTag.attrs.hreflang'),
-  media:        reads('headTag.attrs.media'),
-  rel:          reads('headTag.attrs.rel'),
-  rev:          reads('headTag.attrs.rev'),
-  sizes:        reads('headTag.attrs.sizes'),
-  type:         reads('headTag.attrs.type'),
-  content:      reads('headTag.attrs.content'),
+  href: reads('headTag.attrs.href'),
+  target: reads('headTag.attrs.target'),
+  charset: reads('headTag.attrs.charset'),
+  crossorigin: reads('headTag.attrs.crossorigin'),
+  dir: reads('headTag.attrs.dir'),
+  hreflang: reads('headTag.attrs.hreflang'),
+  media: reads('headTag.attrs.media'),
+  rel: reads('headTag.attrs.rel'),
+  rev: reads('headTag.attrs.rev'),
+  sizes: reads('headTag.attrs.sizes'),
+  type: reads('headTag.attrs.type'),
+  content: reads('headTag.attrs.content'),
   'http-equiv': reads('headTag.attrs.http-equiv'),
-  name:         reads('headTag.attrs.name'),
-  scheme:       reads('headTag.attrs.scheme'),
-  async:        reads('headTag.attrs.async'),
-  defer:        reads('headTag.attrs.defer'),
-  src:          reads('headTag.attrs.src'),
-  property:     reads('headTag.attrs.property'),
-  itemprop:     reads('headTag.attrs.itemprop'),
-  id:           reads('headTag.attrs.id')
-
+  name: reads('headTag.attrs.name'),
+  scheme: reads('headTag.attrs.scheme'),
+  async: reads('headTag.attrs.async'),
+  defer: reads('headTag.attrs.defer'),
+  src: reads('headTag.attrs.src'),
+  property: reads('headTag.attrs.property'),
+  itemprop: reads('headTag.attrs.itemprop'),
+  id: reads('headTag.attrs.id'),
 });

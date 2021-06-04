@@ -6,5 +6,5 @@ export function initialize() {
 
 export default {
   name: 'head-tags',
-  initialize: initialize
+  initialize: initialize,
 };

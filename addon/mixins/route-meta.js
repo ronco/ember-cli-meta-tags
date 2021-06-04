@@ -13,17 +13,19 @@ import { A } from '@ember/array';
 
 export function metaToHeadTags(meta) {
   let metaTypes = Object.keys(meta);
-  return metaTypes.reduce(function(headTags, meta_type) {
-    return headTags.pushObjects(Object.keys(meta[meta_type]).map(function(key) {
-      return {
-        tagId: `${meta_type}:${key}`,
-        type: 'meta',
-        attrs: {
-          [meta_type]: key,
-          content: meta[meta_type][key]
-        }
-      };
-    }));
+  return metaTypes.reduce(function (headTags, meta_type) {
+    return headTags.pushObjects(
+      Object.keys(meta[meta_type]).map(function (key) {
+        return {
+          tagId: `${meta_type}:${key}`,
+          type: 'meta',
+          attrs: {
+            [meta_type]: key,
+            content: meta[meta_type][key],
+          },
+        };
+      })
+    );
   }, A([]));
 }
 
@@ -32,7 +34,7 @@ export default Mixin.create({
 
   // convert legacy meta tags to headTags
   headTags() {
-    let meta = this.get('meta');
+    let meta = this.meta;
     if (typeof meta === 'function') {
       meta = meta.apply(this);
     } else if (typeof meta !== 'object') {
@@ -44,9 +46,8 @@ export default Mixin.create({
 
   actions: {
     resetMeta() {
-      let service = this.get('headTagsService');
+      let service = this.headTagsService;
       next(service, 'collectHeadTags');
-    }
-  }
-
+    },
+  },
 });
