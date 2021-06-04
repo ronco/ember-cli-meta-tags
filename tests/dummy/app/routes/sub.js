@@ -6,9 +6,9 @@ export default Route.extend(RouteMetaMixin, {
   init() {
     this._super(...arguments);
     set(this, 'meta', {
-      'property': {
-        'og:name': 'Sub Zero'
-      }
+      property: {
+        'og:name': 'Sub Zero',
+      },
     });
-  }
+  },
 });

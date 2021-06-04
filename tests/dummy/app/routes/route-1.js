@@ -5,9 +5,9 @@ export default Route.extend(RouteMetaMixin, {
   name: 'Ice-T',
   meta() {
     return {
-      'property': {
-        'og:name': this.get('name')
-      }
+      property: {
+        'og:name': this.name,
+      },
     };
-  }
+  },
 });

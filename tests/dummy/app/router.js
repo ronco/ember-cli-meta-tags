@@ -3,16 +3,16 @@ import config from 'dummy/config/environment';
 
 const Router = EmberRouter.extend({
   location: config.locationType,
-  rootURL: config.rootURL
+  rootURL: config.rootURL,
 });
 
-Router.map(function() {
+Router.map(function () {
   this.route('route-1');
   this.route('route-2');
   this.route('route-object-1');
   this.route('route-object-2');
-  this.route('resource', function() {
-    this.route('sub', { resetNamespace: true }, function() {
+  this.route('resource', function () {
+    this.route('sub', { resetNamespace: true }, function () {
       this.route('deep');
     });
   });

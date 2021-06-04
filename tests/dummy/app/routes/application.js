@@ -11,16 +11,16 @@ export default Route.extend({
         attrs: {
           property: 'og:title',
           dir: 'ltr',
-          content: 'Heyo'
-        }
+          content: 'Heyo',
+        },
       },
       {
         type: 'script',
         attrs: {
-          type: 'application/ld+json'
+          type: 'application/ld+json',
         },
-        content: `{"@context":"Old school".}`
-      }
+        content: `{"@context":"Old school".}`,
+      },
     ]);
-  }
+  },
 });

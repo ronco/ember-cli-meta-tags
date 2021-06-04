@@ -17,11 +17,17 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   env: {
-    browser: true
+    browser: true,
   },
   rules: {
     'ember/no-jquery': 'error',
-    'ember/no-new-mixins': 'off'
+    'ember/no-new-mixins': 'off',
+    'ember/no-mixins': 'off',
+    'ember/no-classic-classes': 'off',
+    'ember/no-private-routing-service': 'off',
+    'ember/no-classic-components': 'off',
+    'ember/no-get': 'off',
+    'ember/require-tagless-components': 'off',
   },
   overrides: [
     // node files
