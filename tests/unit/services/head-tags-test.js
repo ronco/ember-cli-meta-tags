@@ -23,7 +23,7 @@ module('Unit | Service | head tags', function(hooks) {
     let service = this.owner.factoryFor('service:head-tags').create({
       router: {
         _routerMicrolib: {
-          currentHandlerInfos: [{ handler: route, route }]
+          currentHandlerInfos: [{ handler: route, route, isResolved: true }]
         },
         targetState: {
           routerJsState: {
@@ -62,7 +62,7 @@ module('Unit | Service | head tags', function(hooks) {
     let service = this.owner.factoryFor('service:head-tags').create({
       router: {
         _routerMicrolib: {
-          currentHandlerInfos: [{ handler: route, route }]
+          currentHandlerInfos: [{ handler: route, route, isResolved: true }]
         },
         targetState: {
           routerJsState: {
@@ -99,7 +99,7 @@ module('Unit | Service | head tags', function(hooks) {
     let service = this.owner.factoryFor('service:head-tags').create({
       router: {
         _routerMicrolib: {
-          currentHandlerInfos: [{ handler: route, route }]
+          currentHandlerInfos: [{ handler: route, route, isResolved: true }]
         },
         targetState: {
           routerJsState: {
@@ -278,7 +278,7 @@ module('Unit | Service | head tags', function(hooks) {
     let service = this.owner.factoryFor('service:head-tags').create({
       router: {
         _routerMicrolib: {
-          currentHandlerInfos: [{ handler: route, route }]
+          currentHandlerInfos: [{ handler: route, route, isResolved: false }]
         },
         targetState: {
           routerJsState: {
@@ -292,6 +292,7 @@ module('Unit | Service | head tags', function(hooks) {
       service.collectHeadTags();
     });
 
+    // assert.equal(service.get('headData.headTags').length, 0);
     assert.deepEqual(service.get('headData.headTags'), []);
   });
 });
