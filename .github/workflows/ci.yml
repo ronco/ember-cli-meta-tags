@@ -74,8 +74,9 @@ jobs:
           - ember-lts-3.12
           - ember-lts-3.16
           - ember-release
-          - ember-beta
-          - ember-canary
+          # Disabled due to Ember 4.x incompatibility
+          # - ember-beta
+          # - ember-canary
           - ember-default-with-jquery
           - ember-classic
     steps:
