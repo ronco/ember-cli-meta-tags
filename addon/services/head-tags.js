@@ -48,7 +48,7 @@ export default Service.extend({
     if (!route) {
       return {};
     }
-    
+
     let headTags = get(route, 'headTags');
     if (!headTags) {
       return {};
@@ -67,7 +67,7 @@ export default Service.extend({
   _buildTags(headTagsArray) {
     let tagMap = {};
     A(headTagsArray).forEach(function(tagDefinition) {
-      if(!VALID_HEAD_TAGS.includes(tagDefinition.type)) {
+      if(!tagDefinition || !VALID_HEAD_TAGS.includes(tagDefinition.type)) {
         return;
       }
       let tagId = tagDefinition.tagId;
