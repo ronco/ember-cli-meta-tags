@@ -14,6 +14,9 @@ export default Route.extend({
           content: 'Heyo'
         }
       },
+      undefined,
+      null,
+      false,
       {
         type: 'script',
         attrs: {
