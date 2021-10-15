@@ -30,14 +30,14 @@ jobs:
         - "14"
     steps:
     - uses: actions/checkout@v2
-    - uses: volta-cli/action@v1
+    - uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node }}
 
-    - run: npm ci
+    - run: yarn install
 
     - name: Test with ${{ matrix.node }}
-      run: npm run test
+      run: yarn test
 
   floating-dependencies:
     if: "! contains(toJSON(github.event.commits.*.message), '[skip ci]')"
@@ -52,14 +52,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: volta-cli/action@v1
+      - uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
 
-      - run: npm install
+      - run: yarn install --no-lockfile
 
       - name: Test with Node ${{ matrix.node }}
-        run: npm run test
+        run: yarn test
 
   try-scenarios:
     if: "! contains(toJSON(github.event.commits.*.message), '[skip ci]')"
@@ -74,38 +74,17 @@ jobs:
           - ember-lts-3.12
           - ember-lts-3.16
           - ember-release
-          - ember-beta
-          - ember-canary
+          # Disabled due to Ember 4.x incompatibility
+          # - ember-beta
+          # - ember-canary
           - ember-default-with-jquery
           - ember-classic
-          - embroider-safe
-          - embroider-optimized
     steps:
       - uses: actions/checkout@v2
-      - uses: volta-cli/action@v1
+      - uses: actions/setup-node@v2
         with:
           node-version: 12.x
       - name: install dependencies
-        run: npm install
+        run: yarn install
       - name: test
         run: node_modules/.bin/ember try:one ${{ matrix.ember-try-scenario }} --skip-cleanup
-
-
-  publish:
-    name: Release
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    needs: [tests, floating-dependencies, try-scenarios]
-
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-      - uses: volta-cli/action@v1
-      - run: npm install
-
-      - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm run semantic-release

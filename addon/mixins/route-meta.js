@@ -42,10 +42,14 @@ export default Mixin.create({
     return metaToHeadTags(meta);
   },
 
+  _collectHeadTags() {
+    let service = this.get('headTagsService');
+    next(service, 'collectHeadTags');
+  },
+
   actions: {
     resetMeta() {
-      let service = this.get('headTagsService');
-      next(service, 'collectHeadTags');
+      this._collectHeadTags();
     }
   }
 

@@ -1,4 +1,3 @@
-import { run } from '@ember/runloop';
 import Route from '@ember/routing/route';
 import EmberObject from '@ember/object';
 import sinon from 'sinon';
@@ -65,8 +64,8 @@ module('RouteMetaMixin', function() {
     let subject = RouteMetaObject.create({
       headTagsService: 'service'
     });
-    let nextStub = sinon.stub(run, 'next');
+    let nextStub = sinon.stub(subject, '_collectHeadTags');
     subject.send('resetMeta');
-    assert.ok(nextStub.calledWith('service', 'collectHeadTags'));
+    assert.ok(nextStub.calledWith());
   });
 });

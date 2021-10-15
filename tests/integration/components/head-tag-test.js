@@ -69,8 +69,8 @@ module('Integration | Component | head tag', function(hooks) {
         attrs
       }
     );
-    await render(hbs`{{head-tag headTag=headTag id='test-comp'}}`);
-    let elem = this.element.querySelector('#test-comp');
+    await render(hbs`{{head-tag headTag=headTag}}`);
+    let elem = this.element.querySelector('meta');
     Object.keys(attrs).forEach(function(key) {
       assert.equal(elem.getAttribute(key), attrs[key]);
     });
