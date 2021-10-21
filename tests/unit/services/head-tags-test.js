@@ -23,11 +23,11 @@ module('Unit | Service | head tags', function(hooks) {
     let service = this.owner.factoryFor('service:head-tags').create({
       router: {
         _routerMicrolib: {
-          currentHandlerInfos: [{ handler: route, route }]
+          currentHandlerInfos: [{ handler: route, route, isResolved: true }]
         },
         targetState: {
           routerJsState: {
-            routeInfos: [{ route }]
+            routeInfos: [{ route, isResolved: true }]
           }
         }
       }
@@ -62,11 +62,11 @@ module('Unit | Service | head tags', function(hooks) {
     let service = this.owner.factoryFor('service:head-tags').create({
       router: {
         _routerMicrolib: {
-          currentHandlerInfos: [{ handler: route, route }]
+          currentHandlerInfos: [{ handler: route, route, isResolved: true }]
         },
         targetState: {
           routerJsState: {
-            routeInfos: [{ route }]
+            routeInfos: [{ route, isResolved: true }]
           }
         }
       }
@@ -99,11 +99,11 @@ module('Unit | Service | head tags', function(hooks) {
     let service = this.owner.factoryFor('service:head-tags').create({
       router: {
         _routerMicrolib: {
-          currentHandlerInfos: [{ handler: route, route }]
+          currentHandlerInfos: [{ handler: route, route, isResolved: true }]
         },
         targetState: {
           routerJsState: {
-            routeInfos: [{ route }]
+            routeInfos: [{ route, isResolved: true }]
           }
         }
       }
@@ -127,6 +127,7 @@ module('Unit | Service | head tags', function(hooks) {
     assert.expect(1);
     let routes = [
       {
+        isResolved: true,
         handler: {
           headTags: [
             {
@@ -168,6 +169,7 @@ module('Unit | Service | head tags', function(hooks) {
           ]
         }
       },{
+        isResolved: true,
         handler: {
           headTags() {
             return [
@@ -259,5 +261,37 @@ module('Unit | Service | head tags', function(hooks) {
         }
       ]
     );
+  });
+
+  test('it does not collect head tags if route is not resolved', function(assert) {
+    assert.expect(1);
+    let route = {
+      headTags() {
+        return [{
+          type: 'link',
+          attrs: {
+            rel: 'canonical'
+          }
+        }];
+      }
+    };
+    let service = this.owner.factoryFor('service:head-tags').create({
+      router: {
+        _routerMicrolib: {
+          currentHandlerInfos: [{ handler: route, route, isResolved: false }]
+        },
+        targetState: {
+          routerJsState: {
+            routeInfos: [{ route, isResolved: false }]
+          }
+        }
+      }
+    });
+
+    run(() => {
+      service.collectHeadTags();
+    });
+
+    assert.deepEqual(service.get('headData.headTags'), []);
   });
 });

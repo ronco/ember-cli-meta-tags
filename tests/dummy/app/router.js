@@ -16,6 +16,7 @@ Router.map(function() {
       this.route('deep');
     });
   });
+  this.route('route-with-error');
 });
 
 export default Router;
