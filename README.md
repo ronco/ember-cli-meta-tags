@@ -15,14 +15,19 @@ server side solution such as [prerender.io](http://www.prerender.io)
 or with
 [Ember FastBoot](https://github.com/tildeio/ember-cli-fastboot) (FastBoot compatibility requires ember-cli-meta-tags v2+ and Ember 2.7+).
 
-## Usage
+## Compatibility
 
-### Installation
+* Ember.js v3.24 or above
+* Ember CLI v3.24 or above
+* Node.js v12 or above
 
-In your Ember CLI project directory run:
+## Installation
+
 ```
 ember install ember-cli-meta-tags
 ```
+
+## Usage
 
 ### Upgrading to 5.x
 
@@ -238,27 +243,10 @@ Including the RouteMetaMixin in your routes is no longer necessary if
 you provide the headTags property.  However it's use is still
 supported and documented [here](README-route-meta.md).
 
-## Development
+## Contributing
 
-Instructions for developing on this add-on.
+See the [Contributing](CONTRIBUTING.md) guide for details.
 
-### Installation
+## License
 
-* `git clone` this repository
-* `npm install`
-
-### Running
-
-* `ember serve`
-* Visit your app at http://localhost:4200.
-
-### Running Tests
-
-* `ember test`
-* `ember test --serve`
-
-### Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+This project is licensed under the [MIT License](LICENSE.md).
