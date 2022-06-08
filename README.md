@@ -203,7 +203,7 @@ all of the headTags in the current route hierarchy will be re-built.
 // app/routes/some-page.js
 import Route from '@ember/routing/route';
 
-export default Route.extend(RouteMetaMixin, {
+export default Route.extend({
   headTags() {
     let controller = this.controllerFor(this.routeName);
     // value of head tags updates with value of `era` on this
@@ -236,12 +236,6 @@ export default Controller.extend({
   }),
 });
 ```
-
-### Route Meta Mixin
-
-Including the RouteMetaMixin in your routes is no longer necessary if
-you provide the headTags property.  However it's use is still
-supported and documented [here](README-route-meta.md).
 
 ## Contributing
 

@@ -1,12 +1,12 @@
 import Route from '@ember/routing/route';
-import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
+import { metaToHeadTags } from 'ember-cli-meta-tags';
 
-export default Route.extend(RouteMetaMixin, {
-  meta() {
-    return {
+export default Route.extend({
+  headTags() {
+    return metaToHeadTags({
       'property': {
         'og:name': 'Ice-Cube'
       }
-    };
+    });
   }
 });
