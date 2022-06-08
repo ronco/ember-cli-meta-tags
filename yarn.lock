@@ -5808,7 +5808,7 @@ ember-cli-typescript@^2.0.2:
     stagehand "^1.0.0"
     walk-sync "^1.0.0"
 
-ember-cli-version-checker@^2.0.0, ember-cli-version-checker@^2.1.1:
+ember-cli-version-checker@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/ember-cli-version-checker/-/ember-cli-version-checker-2.2.0.tgz#47771b731fe0962705e27c8199a9e3825709f3b3"
   integrity sha512-G+KtYIVlSOWGcNaTFHk76xR4GdzDLzAS4uxZUKdASuFX0KJE43C6DaqL+y3VTpUFLI2FIkAS6HZ4I1YBi+S3hg==
@@ -5948,15 +5948,6 @@ ember-cli@~4.4.0:
     watch-detector "^1.0.1"
     workerpool "^6.2.0"
     yam "^1.0.0"
-
-ember-compatibility-helpers@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/ember-compatibility-helpers/-/ember-compatibility-helpers-1.1.2.tgz#ae0ee4a7a2858b5ffdf79b428c23aee85c47d93d"
-  integrity sha512-yN163MzERpotO8M0b+q+kXs4i3Nx6aIriiZHWv+yXQzr2TAtYlVwg9V7/3+jcurOa3oDEYDpN7y9UZ6q3mnoTg==
-  dependencies:
-    babel-plugin-debug-macros "^0.2.0"
-    ember-cli-version-checker "^2.1.1"
-    semver "^5.4.1"
 
 ember-compatibility-helpers@^1.2.1:
   version "1.2.6"

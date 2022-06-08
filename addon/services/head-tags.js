@@ -3,7 +3,6 @@ import Service, { inject as service } from '@ember/service';
 import { assign } from '@ember/polyfills';
 import { A } from '@ember/array';
 import { get } from '@ember/object';
-import { gte } from 'ember-compatibility-helpers';
 
 //TODO: consider polyfilled Set
 const VALID_HEAD_TAGS = A([
@@ -21,24 +20,10 @@ export default Service.extend({
   // crawl up the active route stack and collect head tags
   collectHeadTags() {
     let tags = {};
-    let currentHandlerInfos;
-
-    if (gte('3.6.0-beta.1')) {
-      currentHandlerInfos = this.get('router.targetState.routerJsState.routeInfos');
-    } else {
-      currentHandlerInfos = this.get('router._routerMicrolib.currentHandlerInfos');
-      if (!currentHandlerInfos) {
-        currentHandlerInfos = this.get('router.router.currentHandlerInfos');
-      }
-    }
-
+    let currentHandlerInfos = this.get('router.targetState.routerJsState.routeInfos');
     let handlerInfos = A(currentHandlerInfos);
     handlerInfos.forEach((handlerInfo) => {
-      if (gte('3.6.0-beta.1')) {
-        assign(tags, this._extractHeadTagsFromRoute(handlerInfo.route));
-      } else {
-        assign(tags, this._extractHeadTagsFromRoute(handlerInfo.handler));
-      }
+      assign(tags, this._extractHeadTagsFromRoute(handlerInfo.route));
     });
     let tagArray = A(Object.keys(tags)).map((id) => tags[id]);
     this.set('headData.headTags', A(tagArray));
