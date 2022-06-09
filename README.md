@@ -4,9 +4,9 @@ An [Ember CLI](http://www.ember-cli.com/) add-on to easily set tags
 (`link`, `meta`, `script`, `noscript`, etc.) in the document head.
 
 Many social networks, sharing platforms, and search engines extract
-data from `<meta>` tags within a page's head tag.  With this add-on,
+data from `<meta>` tags within a page's head tag. With this add-on,
 you can have those meta tags populated when entering individual Ember
-routes.  This allows you to keep all logic within your client side
+routes. This allows you to keep all logic within your client side
 application without needing a sophisticated web server to populate tags
 correctly.
 
@@ -17,9 +17,9 @@ or with
 
 ## Compatibility
 
-* Ember.js v3.24 or above
-* Ember CLI v3.24 or above
-* Node.js v14 or above
+- Ember.js v3.24 or above
+- Ember CLI v3.24 or above
+- Node.js v14 or above
 
 ## Installation
 
@@ -59,9 +59,9 @@ create a custom `app/templates/head.hbs` file and include
 ### Adding Tags Automatically On Transition
 
 In order to dynamically add head tags from your routes all you need to
-do is provide a `headTags` property on the route.  This property can
+do is provide a `headTags` property on the route. This property can
 either be an array of tags, or a function which when invoked with the
-route's context returns an array of tags.  The head tags service will
+route's context returns an array of tags. The head tags service will
 automatically collect all head tags from the currently active routes
 after transition.
 
@@ -88,65 +88,71 @@ To define a head tag you will use the following structure:
 #### Nesting
 
 This library supports pulling tag definitions from nested routes
-without creating duplicate tags.  Deeper nested routes will override
-parent route tags.  In order to support this you need to provide a
-unique `tagId` property on your tag definition.  Only one tag with a
+without creating duplicate tags. Deeper nested routes will override
+parent route tags. In order to support this you need to provide a
+unique `tagId` property on your tag definition. Only one tag with a
 given `tagId` will ever be rendered in the head.
 
 ##### Head Tags object
 
 You can also define the tags by providing an object as the value for
-the meta property on the route.  This can either be in-lined in your
+the meta property on the route. This can either be in-lined in your
 route definition, or set as a property on the route prior to
 the didTransition event.
 
 ###### Example: static headTags property on the route
+
 ```javascript
 // app/routes/some-page.js
 import Route from '@ember/routing/route';
 
-export default Route.extend({
-  headTags: [{
+export default class extends Route {
+  headTags = [
+    {
       type: 'meta',
       tagId: 'meta-og-name',
       attrs: {
         property: 'og:name',
-        content: 'Ice-T'
-      }
+        content: 'Ice-T',
+      },
     },
     {
       type: 'link',
       tagId: 'canonical-link',
       attrs: {
         rel: 'canonical',
-        content: 'http://mydomain.org/'
-      }
-    }]
-});
+        content: 'http://mydomain.org/',
+      },
+    },
+  ];
+}
 ```
 
 ###### Example: Setting the headTags property in afterModel
+
 ```javascript
 import Route from '@ember/routing/route';
 
-export default Route.extend({
+export default class extends Route {
   afterModel(model) {
     this.setHeadTags(model);
-  },
+  }
 
   setHeadTags(model) {
-    let headTags = [{
-      type: 'meta',
-      tagId: 'meta-description-tag',
-      attrs: {
-        name: 'description',
-        content: model.get('description')
-      }
-    }];
+    let headTags = [
+      {
+        type: 'meta',
+        tagId: 'meta-description-tag',
+        attrs: {
+          name: 'description',
+          content: model.get('description'),
+        },
+      },
+    ];
 
-    this.set('headTags', headTags);
+    this.headTags = headTags;
   }
-});
+}
 ```
 
 ##### headTags function
@@ -160,20 +166,22 @@ that returns the appropriate head tags.
 // app/routes/some-page.js
 import Route from '@ember/routing/route';
 
-export default Route.extend({
+export default class extends Route {
   headTags() {
     // here we are pulling meta data from the model for this route
     let model = this.modelFor(this.routeName);
-    return [{
-      type: 'meta',
-      tagId: 'meta-description-tag',
-      attrs: {
-        name: 'description',
-        content: model.get('description')
-      }
-    }];
+    return [
+      {
+        type: 'meta',
+        tagId: 'meta-description-tag',
+        attrs: {
+          name: 'description',
+          content: model.description,
+        },
+      },
+    ];
   }
-});
+}
 ```
 
 When you visit '/some-page' the document head tag will be updated as
@@ -182,7 +190,7 @@ follows:
 ```html
 <head>
   <!-- ... -->
-  <meta name='description' content='Ice-T'>
+  <meta name="description" content="Ice-T" />
   <!-- ... -->
 </head>
 ```
@@ -203,7 +211,7 @@ all of the headTags in the current route hierarchy will be re-built.
 // app/routes/some-page.js
 import Route from '@ember/routing/route';
 
-export default Route.extend({
+export default class extends Route {
   headTags() {
     let controller = this.controllerFor(this.routeName);
     // value of head tags updates with value of `era` on this
@@ -213,28 +221,28 @@ export default Route.extend({
       tagId: 'meta-title',
       attrs: {
         property: 'title',
-        content: controller.get('era')
+        content: controller.era
       }
     }]
   }
-});
+}
 
 
 // app/controller/some-page.js
 import Controller from '@ember/controller';
 
-export default Controller.extend({
-  headTagsService: Ember.inject.service('head-tags'),
-  queryParameters: {
+export default class extends Controller {
+  @service headTagsService;
+  queryParameters = {
     era: 'e'
-  },
+  };
   // this observer runs whenever the era query parameter updates
   // which by default does not trigger a full route transition
   // so we need to notify the service to rebuild tags
-  eraObserver: Ember.observer('era', function() {
-    this.get('headTagsService').collectHeadTags();
-  }),
-});
+  @observer('era') eraObserver() {
+    this.headTagsService.collectHeadTags();
+  }
+}
 ```
 
 ## Contributing

@@ -1,5 +1,4 @@
 import Router from '@ember/routing/router';
-import { get } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export function initialize() {
@@ -9,16 +8,15 @@ export function initialize() {
     init() {
       this._super(...arguments);
 
+      this.headTags.router = this;
+
       this.on('routeDidChange', () => {
-        get(this, 'headTags').collectHeadTags();
-        this._super(...arguments);
+        this.headTags.collectHeadTags();
       });
-    }
+    },
   });
 }
 
 export default {
-  name: 'router-head-tags',
-  after: 'head-tags',
-  initialize
+  initialize,
 };
