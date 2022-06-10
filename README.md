@@ -29,6 +29,46 @@ ember install ember-cli-meta-tags
 
 ## Usage
 
+### Upgrading to 7.x
+
+Version 7+ requires Node.js 14+, Ember 3.24+ and [ember-cli-head](https://github.com/ronco/ember-cli-head) 2+
+
+`RouteMetaMixin` was removed and `metaToHeadTags` function was introduced to partially keep original behaviour.
+
+**BEFORE**
+
+```javascript
+import Route from '@ember/routing/route';
+import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
+
+export default Route.extend(RouteMetaMixin, {
+  meta() {
+    return {
+      property: {
+        'og:type': 'Root',
+      },
+    };
+  },
+});
+```
+
+**AFTER**
+
+```javascript
+import Route from '@ember/routing/route';
+import { metaToHeadTags } from 'ember-cli-meta-tags';
+
+export default class extends Route {
+  headTags() {
+    return metaToHeadTags({
+      property: {
+        'og:type': 'Root',
+      },
+    });
+  }
+}
+```
+
 ### Upgrading to 5.x
 
 Version 5.0 of this addon depends on [ember-cli-head](https://github.com/ronco/ember-cli-head) 0.4.0, which adds the requirement that the `<HeadLayout />` is added once in an application-wide template (usually `app/templates/application.hbs`). For more info, see the [ember-cli-head 0.4 upgrade note](https://github.com/ronco/ember-cli-head#upgrade-to-04x).
