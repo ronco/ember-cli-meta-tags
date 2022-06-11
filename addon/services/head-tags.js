@@ -1,55 +1,35 @@
 import { guidFor } from '@ember/object/internals';
 import Service, { inject as service } from '@ember/service';
-import { assign } from '@ember/polyfills';
-import { A } from '@ember/array';
-import { get } from '@ember/object';
-import { gte } from 'ember-compatibility-helpers';
 
-//TODO: consider polyfilled Set
-const VALID_HEAD_TAGS = A([
+const VALID_HEAD_TAGS = new Set([
   'base',
   'link',
   'meta',
   'script',
   'noscript',
-  'title'
+  'title',
 ]);
 
-export default Service.extend({
-  headData: service(),
+export default class HeadTags extends Service {
+  @service headData;
 
   // crawl up the active route stack and collect head tags
   collectHeadTags() {
     let tags = {};
-    let currentHandlerInfos;
-
-    if (gte('3.6.0-beta.1')) {
-      currentHandlerInfos = this.get('router.targetState.routerJsState.routeInfos');
-    } else {
-      currentHandlerInfos = this.get('router._routerMicrolib.currentHandlerInfos');
-      if (!currentHandlerInfos) {
-        currentHandlerInfos = this.get('router.router.currentHandlerInfos');
-      }
-    }
-
-    let handlerInfos = A(currentHandlerInfos);
-    handlerInfos.forEach((handlerInfo) => {
-      if (gte('3.6.0-beta.1')) {
-        assign(tags, this._extractHeadTagsFromRoute(handlerInfo.route));
-      } else {
-        assign(tags, this._extractHeadTagsFromRoute(handlerInfo.handler));
-      }
+    let currentHandlerInfos = this.router.targetState.routerJsState.routeInfos;
+    currentHandlerInfos.forEach((handlerInfo) => {
+      Object.assign(tags, this._extractHeadTagsFromRoute(handlerInfo.route));
     });
-    let tagArray = A(Object.keys(tags)).map((id) => tags[id]);
-    this.set('headData.headTags', A(tagArray));
-  },
+    let tagArray = Object.keys(tags).map((id) => tags[id]);
+    this.headData.set('headTags', tagArray);
+  }
 
   _extractHeadTagsFromRoute(route) {
     if (!route) {
       return {};
     }
 
-    let headTags = get(route, 'headTags');
+    let headTags = route.headTags;
     if (!headTags) {
       return {};
     }
@@ -61,13 +41,13 @@ export default Service.extend({
     }
     // convert headTags to object
     return this._buildTags(headTags);
-  },
+  }
 
   // ensure all tags have a tagId and build object keyed by id
   _buildTags(headTagsArray) {
     let tagMap = {};
-    A(headTagsArray).forEach(function(tagDefinition) {
-      if(!tagDefinition || !VALID_HEAD_TAGS.includes(tagDefinition.type)) {
+    headTagsArray.forEach(function (tagDefinition) {
+      if (!tagDefinition || !VALID_HEAD_TAGS.has(tagDefinition.type)) {
         return;
       }
       let tagId = tagDefinition.tagId;
@@ -78,4 +58,4 @@ export default Service.extend({
     });
     return tagMap;
   }
-});
+}

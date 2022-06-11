@@ -1,14 +1,12 @@
 import Route from '@ember/routing/route';
-import RouteMetaMixin from 'ember-cli-meta-tags/mixins/route-meta';
+import { metaToHeadTags } from 'ember-cli-meta-tags';
 
-export default Route.extend(RouteMetaMixin, {
+export default class extends Route {
   afterModel() {
-    this.set(
-      'meta', {
-        'property': {
-          'og:name': 'Dre'
-        }
-      }
-    );
+    this.headTags = metaToHeadTags({
+      property: {
+        'og:name': 'Dre',
+      },
+    });
   }
-});
+}
